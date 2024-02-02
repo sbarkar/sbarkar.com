@@ -20,259 +20,224 @@ import {
 import { GitHubIcon, LinkedInIcon, XIcon } from "@/components/icons";
 
 export const RESUME_DATA = {
-  name: "Bartosz Jarocki",
-  initials: "BJ",
-  location: "Wrocław, Poland, CET",
-  locationLink: "https://www.google.com/maps/place/Wrocław",
+  name: "Sergej Barkar",
+  initials: "SB",
+  location: "Zürich, Switzerland, CET",
+  locationLink: "https://www.google.com/maps/place/Zürich",
   about:
-    "Full Stack Engineer focused on building products with extra attention to detail",
+    "I solve important problems with data.",
   summary:
-    "As a Full Stack Engineer, I have successfully taken multiple products from 0 to 1. I lead teams effectively, ensuring an environment where people can do their best work. Currently, I work mostly with TypeScript, React, Node.js, and GraphQL. I have over 8 years of experience in working remotely with companies all around the world.",
-  avatarUrl: "https://avatars.githubusercontent.com/u/1017620?v=4",
-  personalWebsiteUrl: "https://jarocki.me",
+    "An innovative tech entrepreneur and visionary leader, driving global sustainability through cutting-edge data-centric solutions and cultivating a culture of innovation and excellence. I have over 12 years of experience in technology and leadership working with companies in the UK, Europe, Australia and the US.",
+  avatarUrl: "https://avatars.githubusercontent.com/u/47544355?v=4",
+  personalWebsiteUrl: "https://sbarkar.com",
   contact: {
-    email: "bartosz.jarocki@hey.com",
-    tel: "+48530213401",
+    email: "contact@sbarkar.com",
+    tel: "+41798758379",
     social: [
       {
         name: "GitHub",
-        url: "https://github.com/BartoszJarocki",
+        url: "https://github.com/sbarkar",
         icon: GitHubIcon,
       },
       {
         name: "LinkedIn",
-        url: "https://www.linkedin.com/in/bjarocki/",
+        url: "https://www.linkedin.com/in/sbarkar/",
         icon: LinkedInIcon,
       },
       {
         name: "X",
-        url: "https://x.com/BartoszJarocki",
+        url: "https://twitter.com/sbarkar_",
         icon: XIcon,
       },
     ],
   },
   education: [
     {
-      school: "Wrocław University of Technology",
-      degree: "Bachelor's Degree in Control systems engineering and Robotics",
-      start: "2007",
-      end: "2010",
+      school: "City, University of London",
+      degree: "Bachelor's Degreee in Computer Science with Artificial Intelligence",
+      start: "2011",
+      end: "2014",
     },
   ],
   work: [
     {
-      company: "Parabol",
-      link: "https://parabol.co",
-      badges: ["Remote"],
-      title: "Senior Full Stack Developer",
-      logo: ParabolLogo,
+      company: "Transparency as a Service AG",
+      link: "https://taas-ag.com",
+      badges: ["Zürich, Switzerland"],
+      title: "Founder & CEO",
+      /*logo: ParabolLogo,*/
       start: "2021",
       end: "2024",
       description:
-        "Implemented new features, led squad, worked on improving the way developers ship the code, started migration from Emotion to Tailwind CSS and more. Technologies: React, TypeScript, GraphQL",
+        "Spearheaded the creation and expansion of a blockchain-based platform for enhancing supply chain transparency and quality control, driving the company to serve over 40 companies globally within a year, while fostering a culture of innovation and securing full compliance with major data protection and sustainability standards.",
     },
     {
-      company: "Clevertech",
-      link: "https://clevertech.biz",
-      badges: ["Remote"],
-      title: "Lead Android Developer → Full Stack Developer",
-      logo: ClevertechLogo,
-      start: "2015",
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["Zürich & Sydney"],
+      title: "Region Lead",
+      /*logo: ParabolLogo,*/
+      start: "2021",
+      end: "2023",
+      description:
+        "Drove significant growth in the APAC and EMEA markets through leadership in cloud architecture and team management, directly contributing to a notable increase in revenue and client satisfaction by pioneering automation solutions and strategic project leadership in key industries.",
+    },
+    {
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["Sydney, Australia"],
+      title: "Solutions Lead",
+      /*logo: ParabolLogo,*/
+      start: "2021",
       end: "2021",
-      description:
-        "Created Android mobile apps and led teams for companies like Vision Media, DKMS, or AAA. Built live streaming application for Evercast from scratch. Technologies: Android, Kotlin, React, TypeScript, GraphQL",
+      description: "Championed the development and implementation of comprehensive business intelligence strategies, driving seamless integration of cross-platform analytics solutions to deliver consistent, high-impact user experiences and fortify client business outcomes in a competitive market.",
     },
     {
-      company: "Jojo Mobile",
-      link: "https://bsgroup.eu/",
-      badges: [],
-      title: "Android Developer → Lead Android Developer",
-      logo: JojoMobileLogo,
-      start: "2012",
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["Sydney, Australia"],
+      title: "Platforms Architect",
+      /*logo: ParabolLogo,*/
+      start: "2020",
+      end: "2021",
+      description: "Pioneered advanced analytics infrastructure, harmonising on-premise and cloud ecosystems to elevate performance, security, and data accessibility, while optimising high-availability and disaster recovery strategies to support scalable growth and future-proofing the analytics landscape.",
+    },
+    {
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["Sydney, Australia"],
+      title: "Senior Analytics Consultant",
+      /*logo: ParabolLogo,*/
+      start: "2018",
+      end: "2020",
+      description: "Orchestrated a convergence of data analytics and business strategy, fostering a culture of data-driven decision making, enhancing BI platform adoption, and spearheading change management to ensure agile and impactful analytics practices.",
+    },
+    {
+      company: "Javelin Group (part of Accenture Strategy)",
+      link: "https://www.javelingroup.com/",
+      badges: ["London, UK"],
+      title: "Senior Analytics Consultant",
+      /*logo: ParabolLogo,*/
+      start: "2016",
+      end: "2018",
+      description: "Strategically guided cross-platform analytics integration, tailored education and community building within teams, and implemented comprehensive data analytics platforms, driving transformative business intelligence solutions and user experience optimisation for the largest retailers on the planet.",
+    },
+    {
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["London, UK"],
+      title: "Senior Analytics Consultant",
+      /*logo: ParabolLogo,*/
+      start: "2015",
+      end: "2016",
+      description: "Led advanced data analysis initiatives, devising comprehensive business intelligence solutions and Tableau visualisations, overseeing data governance, and articulating data-driven strategies to stakeholders, facilitating organisation-wide upskilling in data literacy.",
+    },
+    {
+      company: "InterWorks",
+      link: "https://interworks.com",
+      badges: ["London, UK"],
+      title: "Analytics Consultant",
+      /*logo: ParabolLogo,*/
+      start: "2014",
       end: "2015",
-      description:
-        "Built an Android team, created Android apps for biggest Polish companies like LOT, Polskie Radio, Agora, PolskaPress",
+      description: "Synthesised complex datasets into strategic insights using Tableau, crafting interactive dashboards for informed decision-making, while ensuring database accuracy and contributing to the organisation's data strategy.",
     },
     {
-      company: "Nokia Siemens Networks",
-      link: "https://www.nokia.com",
-      badges: [],
-      title: "C/C++ Developer",
-      logo: NSNLogo,
-      start: "2010",
-      end: "2012",
-      description: "Creating and testing software for LTE base stations",
+      company: "BarkOne Consulting",
+      link: "https://barkone.co.uk",
+      badges: ["London, UK"],
+      title: "Foudner & CEO",
+      /*logo: ParabolLogo,*/
+      start: "2013",
+      end: "2014",
+      description: "Established and led an IT consultancy, delivering bespoke software solutions and driving business growth through strategic leadership.",
     },
   ],
   skills: [
-    "JavaScript",
-    "TypeScript",
-    "React/Next.js/Remix",
-    "Node.js",
-    "GraphQL",
-    "Relay",
-    "WebRTC",
+    "Leadership",
+    "Communication",
+    "Team Management",
+    "Sales",
+    "Strategy",
+    "Supply Chain",
+    "Marketing",
+    "Cloud",
+    "Architecture",
+    "Change Management",
+    "Business Intelligence",
+    "Data Governance",
+    "Data Literacy",
+    "Data Visualisation",
+    "Data Warehousing",
+    "ETL",
+    "Machine Learning",
+    "Artificial Intelligence",
+    "Data Science",
+    "Data Engineering",
+    "Analytics",
+    "Enablement",
   ],
   projects: [
     {
-      title: "Consultly",
+      title: "Transparency as a Service AG",
+      techStack: ["Startup", "Sales", "GTM", "Blockchain", "Supply Chain", "Sustainability", "Marketing"],
+      description:
+        "Platform to automate gathering of sustainability data from agricultural supply chains and fighting counterfeit products",
+      link: {
+        label: "taas-ag.com",
+        href: "https://taas-ag.com/",
+      },
+    },
+    {
+      title: "InterWorks Translate",
       techStack: [
-        "Side Project",
-        "TypeScript",
-        "Next.js",
-        "Vite",
-        "GraphQL",
-        "WebRTC",
+        "Python",
+        "Lambda",
+        "API Gateway",
+        "Tableau",
       ],
-      description: "A platform to build and grow your online business",
-      logo: ConsultlyLogo,
+      description: "A serverless application that translates Tableau workbooks and dashboards",
       link: {
-        label: "consultly.com",
-        href: "https://consultly.com/",
+        label: "GitHub",
+        href: "https://github.com/sbarkar/InterWorks-Translate",
       },
     },
     {
-      title: "Monito",
-      techStack: ["Side Project", "TypeScript", "Next.js", "Browser Extension"],
+      title: "Tableau Server Remote",
+      techStack: ["Side Project", "AWS", "Swift", "Tableau"],
       description:
-        "Browser extension that records everything happening in a web application",
-      logo: MonitoLogo,
+        "iOS app that allows to control Tableau Server from your iPhone",
+    },
+    {
+      title: "sbarkar.com",
+      techStack: ["Side Project", "Next.js", "Vercel"],
+      description:
+        "My personal CV website",
       link: {
-        label: "monito.dev",
-        href: "https://monito.dev/",
+        label: "sbarkar.com",
+        href: "https://sbarkar.com/",
       },
     },
     {
-      title: "Jarocki.me",
-      techStack: ["Side Project", "Next.js", "MDX"],
+      title: "CircleMeal",
+      techStack: ["Side Project", "Next.js", "Typescript", "Vercel", "TailwindCSS", "PostgreSQL"],
       description:
-        "My personal website and blog. Built with Next.js and Notion API",
-      logo: JarockiMeLogo,
+        "Platform for curated 1 on 1 meals with interesting people",
       link: {
-        label: "github.com",
-        href: "https://jarocki.me/",
+        label: "CircleMeal",
+        href: "https://circlemeal.com/",
       },
     },
     {
-      title: "Minimal",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
+      title: "WebOS",
+      techStack: ["Side Project", "Next.js", "Typescript", "Vercel", "TailwindCSS", "PostgreSQL"],
       description:
-        "Minimalist calendars, habit trackers and planners generator",
-      logo: Minimal,
+        "Fully functioning desktop environment in the browser and yes you can play DOOM in it.",
       link: {
-        label: "useminimal.com",
-        href: "https://useminimal.com/",
+        label: "X Barkar Dev",
+        href: "https://x.barkar.dev/",
       },
     },
-    {
-      title: "Barepapers",
-      techStack: ["Side Project", "Next.js", "Puppeteer"],
-      description:
-        "Generates beautiful wallpapers using random shapes and gradients",
-      logo: BarepapersLogo,
-      link: {
-        label: "barepapers.com",
-        href: "https://barepapers.com/",
-      },
-    },
-    {
-      title: "Year progress",
-      techStack: ["Side Project", "TypeScript", "Next.js"],
-      description: "Tracks current year progress and displays a countdown",
-      logo: YearProgressLogo,
-      link: {
-        label: "getyearprogress.com",
-        href: "https://getyearprogress.com/",
-      },
-    },
-    {
-      title: "Parabol",
-      techStack: [
-        "Full Stack Developer",
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "The Agile meeting co-pilot that delivers better meetings with less effort",
-      logo: ParabolLogo,
-      link: {
-        label: "github.com",
-        href: "https://parabol.co/",
-      },
-    },
-    {
-      title: "Evercast",
-      techStack: [
-        "Lead Frontend Developer",
-
-        "TypeScript",
-        "React",
-        "Node.js",
-        "GraphQL",
-      ],
-      description:
-        "Creative collaboration platform that combines video conferencing and HD media streaming",
-      logo: EvercastLogo,
-      link: {
-        label: "evercast.us",
-        href: "https://www.evercast.us/",
-      },
-    },
-    {
-      title: "Mobile Vikings",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application for leading virtual mobile operator in Poland",
-      logo: MobileVikingsLogo,
-      link: {
-        label: "mobilevikings.pl",
-        href: "https://mobilevikings.pl/",
-      },
-    },
-    {
-      title: "Howdy",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Howdy is a place for you to join communities you care about",
-      logo: Howdy,
-      link: {
-        label: "play.google.com",
-        href: "https://howdy.co/",
-      },
-    },
-    {
-      title: "Tastycloud",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application for managing and displaying restaurant menus in kiosk mode",
-      logo: TastyCloudLogo,
-      link: {
-        label: "tastycloud.fr",
-        href: "https://www.tastycloud.fr/",
-      },
-    },
-    {
-      title: "Ambit",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application that helps with sharing your contact details",
-      logo: AmbitLogo,
-    },
-    {
-      title: "Bim",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Android application that helps with booking a table in a restaurants",
-      logo: BimLogo,
-    },
-    {
-      title: "Canal Digital GO",
-      techStack: ["Lead Android Developer", "Android", "Kotlin"],
-      description:
-        "Video streaming mobile application for Canal Digital subscribers",
-      logo: CDGOLogo,
-    },
+    
   ],
 } as const;
