@@ -230,7 +230,7 @@ export const RESUME_DATA = {
     },
     {
       title: "WebOS",
-      techStack: ["Side Project", "Next.js", "Typescript", "Vercel", "TailwindCSS", "PostgreSQL"],
+      techStack: ["Side Project", "JavaScript", "Typescript", "CSS", "HTML", "GLSL"],
       description:
         "Fully functioning desktop environment in the browser and yes you can play DOOM in it.",
       link: {
@@ -238,6 +238,5 @@ export const RESUME_DATA = {
         href: "https://x.barkar.dev/",
       },
     },
-    
   ],
 } as const;
