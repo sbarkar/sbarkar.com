@@ -239,10 +239,20 @@ export const RESUME_DATA = {
       title: "WebOS",
       techStack: ["Side Project", "JavaScript", "Typescript", "CSS", "HTML", "GLSL"],
       description:
-        "Fully functioning desktop environment in the browser and yes you can play DOOM in it.",
+        "Fully functioning desktop environment in the browser and yes you can play DOOM in it",
       link: {
         label: "X Barkar Dev",
         href: "https://x.barkar.dev/",
+      },
+    },
+    {
+      title: "b33group.com",
+      techStack: ["Side Project", "JavaScript", "Wordpress"],
+      description:
+        "A website for an interior design studio",
+      link: {
+        label: "B33 Group",
+        href: "https://b33group.com/",
       },
     },
   ],
