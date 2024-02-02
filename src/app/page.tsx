@@ -166,6 +166,15 @@ export default function Page() {
             })}
           </div>
         </Section>
+        
+        <Section>
+          <h2 className="text-xl font-bold">Languages</h2>
+          <div className="flex flex-wrap gap-1">
+            {RESUME_DATA.languages.map((language) => {
+              return <Badge key={language}>{language}</Badge>;
+            })}
+          </div>
+        </Section>
 
         <Section className="print-force-new-page scroll-mb-16">
           <h2 className="text-xl font-bold">Projects</h2>

@@ -177,6 +177,13 @@ export const RESUME_DATA = {
     "Analytics",
     "Enablement",
   ],
+  languages: [
+    "English - Native",
+    "Slovak - Native",
+    "Czech - Native",
+    "Russian - Fluent",
+    "German - B1",
+  ],
   projects: [
     {
       title: "Transparency as a Service AG",
