@@ -66,7 +66,7 @@ export const RESUME_DATA = {
       badges: ["Zürich, Switzerland"],
       title: "Founder & CEO",
       /*logo: ParabolLogo,*/
-      start: "2021",
+      start: "2023",
       end: "2024",
       description:
         "Spearheaded the creation and expansion of a blockchain-based platform for enhancing supply chain transparency and quality control, driving the company to serve over 40 companies globally within a year, while fostering a culture of innovation and securing full compliance with major data protection and sustainability standards.",
