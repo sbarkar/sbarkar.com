@@ -178,10 +178,10 @@ export const RESUME_DATA = {
     "Enablement",
   ],
   languages: [
-    "English - Native",
+    "English - C2",
     "Slovak - Native",
     "Czech - Native",
-    "Russian - Fluent",
+    "Russian - C1",
     "German - B1",
   ],
   projects: [
