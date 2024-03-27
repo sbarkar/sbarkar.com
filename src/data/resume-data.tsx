@@ -25,7 +25,7 @@ export const RESUME_DATA = {
   location: "Zürich, Switzerland, CET",
   locationLink: "https://www.google.com/maps/place/Zürich",
   about:
-    "I solve important problems with data.",
+    "FUTURE DATA SOLUTIONS",
   summary:
     "An innovative tech entrepreneur and visionary leader, driving global sustainability through cutting-edge data-centric solutions and cultivating a culture of innovation and excellence. I have over 12 years of experience in technology and leadership working with companies in the UK, Europe, Australia and the US.",
   avatarUrl: "https://avatars.githubusercontent.com/u/47544355?v=4",
