@@ -1,12 +1,10 @@
 name: "CodeQL Analysis"
 
 on:
-  # Run CodeQL analysis on pushes to the main branch and pull requests targeting main
   push:
     branches: [main]
   pull_request:
     branches: [main]
-  # Schedule a weekly analysis at midnight on Sunday (UTC)
   schedule:
     - cron: '0 0 * * 0'
 
@@ -18,27 +16,16 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        # Specify the languages to analyze
         language: [ 'javascript', 'typescript' ]
-        # Optionally, add operating systems or other dimensions to the matrix if needed
 
     steps:
-    # Step 1: Check out the code from the repository
     - name: Checkout repository
       uses: actions/checkout@v3
 
-    # Step 2: Initialize CodeQL
     - name: Initialize CodeQL
-      uses: github/codeql-action/init@v2
+      uses: github/codeql-action/init@v3
       with:
         languages: ${{ matrix.language }}
-        # Optionally, specify a custom CodeQL database folder or queries:
-        # db-location: /path/to/database
-        # queries: security-and-quality
 
-    # Step 3: Perform CodeQL Analysis
     - name: Perform CodeQL Analysis
-      uses: github/codeql-action/analyze@v2
-      with:
-        # Optionally, enable SARIF upload (default is true)
-        upload: true
+      uses: github/codeql-action/analyze@v3
