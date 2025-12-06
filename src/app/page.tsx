@@ -26,7 +26,7 @@ export default function Page() {
             </p>
             <p className="text-muted-foreground max-w-md items-center font-mono text-xs text-pretty">
               <a
-                className="bg-secondary inline-flex gap-x-1.5 rounded px-1 align-baseline leading-none hover:underline"
+                className="inline-flex gap-x-1.5 align-baseline leading-none hover:underline"
                 href={RESUME_DATA.locationLink}
                 target="_blank"
               >
