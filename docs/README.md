@@ -8,6 +8,7 @@ Welcome to the sbarkar.com documentation. This directory contains guides for dev
 - **[DEV_CHECKLIST.md](DEV_CHECKLIST.md)** - Developer checklist for common tasks and validation steps
 
 ### Deployment & Migration
+- **[QUICK_COMPARISON.md](QUICK_COMPARISON.md)** - ⚡ One-page visual comparison (start here!)
 - **[GITHUB_PAGES_MIGRATION.md](GITHUB_PAGES_MIGRATION.md)** - Complete guide for migrating from Vercel to GitHub Pages
 - **[MIGRATION_CHECKLIST.md](MIGRATION_CHECKLIST.md)** - Quick checklist for GitHub Pages migration
 - **[VERCEL_VS_GITHUB_PAGES.md](VERCEL_VS_GITHUB_PAGES.md)** - Detailed comparison of Vercel vs GitHub Pages
@@ -18,13 +19,15 @@ Welcome to the sbarkar.com documentation. This directory contains guides for dev
 
 ### 🤔 Considering GitHub Pages Migration?
 
-Start here: [Vercel vs GitHub Pages Comparison](VERCEL_VS_GITHUB_PAGES.md)
+**Quick Decision (2 min read)**: [Quick Visual Comparison](QUICK_COMPARISON.md) ⚡
+
+**Detailed Analysis (15 min read)**: [Vercel vs GitHub Pages Comparison](VERCEL_VS_GITHUB_PAGES.md)
 
 **Key Questions Answered:**
-- Is my site compatible with GitHub Pages?
-- What are the trade-offs?
-- Should I migrate?
-- How long will it take?
+- Is my site compatible with GitHub Pages? ✅ YES!
+- What are the trade-offs? Analytics & deploy speed vs unlimited bandwidth
+- Should I migrate? Depends on your priorities
+- How long will it take? ~1 hour
 
 ### 📖 Ready to Migrate?
 
@@ -45,6 +48,22 @@ See the [Developer Checklist](DEV_CHECKLIST.md) for:
 ---
 
 ## Document Summaries
+
+### Quick Visual Comparison
+**File**: `QUICK_COMPARISON.md`  
+**Length**: 1 page  
+**Time to Read**: 2 minutes
+
+One-page visual comparison with:
+- ⚖️ Side-by-side feature matrix
+- 🎯 30-second decision tree
+- 📊 Performance comparisons
+- 💡 Quick recommendations
+- 🎬 Final verdict
+
+**Start here if**: You want to make a quick decision without reading detailed docs.
+
+---
 
 ### GitHub Pages Migration Guide
 **File**: `GITHUB_PAGES_MIGRATION.md`  
@@ -255,7 +274,8 @@ Please ensure:
 
 **Need to get started quickly?**
 
-1. **New developer**: Read [DEV_CHECKLIST.md](DEV_CHECKLIST.md)
-2. **Considering migration**: Read [VERCEL_VS_GITHUB_PAGES.md](VERCEL_VS_GITHUB_PAGES.md)
-3. **Ready to migrate**: Read [GITHUB_PAGES_MIGRATION.md](GITHUB_PAGES_MIGRATION.md)
-4. **Migrating now**: Use [MIGRATION_CHECKLIST.md](MIGRATION_CHECKLIST.md)
+1. **Quick decision**: Read [QUICK_COMPARISON.md](QUICK_COMPARISON.md) ⚡ (2 min)
+2. **New developer**: Read [DEV_CHECKLIST.md](DEV_CHECKLIST.md)
+3. **Considering migration**: Read [VERCEL_VS_GITHUB_PAGES.md](VERCEL_VS_GITHUB_PAGES.md) (15 min)
+4. **Ready to migrate**: Read [GITHUB_PAGES_MIGRATION.md](GITHUB_PAGES_MIGRATION.md) (10 min)
+5. **Migrating now**: Use [MIGRATION_CHECKLIST.md](MIGRATION_CHECKLIST.md) (1 hour)
