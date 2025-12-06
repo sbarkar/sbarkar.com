@@ -238,19 +238,33 @@ yarn dev
 To ensure code quality, configure branch protection for the `main` branch:
 
 1. Navigate to **Settings → Branches → Branch protection rules**
-2. Add rule for `main` branch
+2. Add rule for `main` branch  
 3. Enable **Require status checks to pass before merging**
-4. Search for and select **CI** as a required status check
-   - Note: The status check must run at least once before it appears in the list
+4. In the search box under "Status checks found in the last week for this repository", search for **CI**
+   - **Important**: The status check must run successfully **at least once** before it appears here
+   - If you don't see it, merge this PR first to trigger a successful run on `main`
    - The check is named "CI" (matches the job name in `.github/workflows/ci.yml`)
+   - After this PR merges, wait a few minutes then refresh the branch protection settings page
 5. Enable other recommended protections:
    - **Require a pull request before merging**
    - **Require approvals** (if working with a team)
    - **Require conversation resolution before merging**
 
+#### Troubleshooting: "No checks available"
+
+If you don't see ANY status checks in the list:
+
+- **Check Actions tab**: Verify workflows are running (go to Actions tab and look for successful runs)
+- **Merge this PR first**: The "CI" check won't appear until it runs successfully on `main` at least once
+- **Wait a few minutes**: After a successful run, GitHub may take a few minutes to register the check
+- **Refresh the page**: Browser caching can hide newly available checks  
+- **Check permissions**: You need admin access to the repository to configure branch protection
+
 ### Why "CI" and not "ci"?
 
 GitHub branch protection uses **job names** from workflows, not workflow names. The CI workflow job is named "CI" (uppercase) to match the workflow name and make it easily identifiable in branch protection settings.
+
+**Historical note**: If you see "ci" (lowercase) in your settings, that's from before this change. Once this PR merges and runs successfully, "CI" (uppercase) will become available.
 
 ## 🚀 Deployment
 
