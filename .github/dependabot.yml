@@ -1,5 +1,4 @@
 version: 2
-version: 2
 updates:
   - package-ecosystem: "yarn"
     directory: "/"
@@ -13,4 +12,3 @@ updates:
     # Keep security updates trusted and frequent
     allow:
       - dependency-type: "all"
-version: 2
