@@ -9,7 +9,7 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
 # Features
 
 - Setup only takes a few minutes [single config file](./src/data/resume-data.tsx)
-- Built using Next.js 14, React, Typescript, Shadcn/ui, TailwindCss
+- Built using Next.js 15, React, TypeScript, Shadcn/ui, TailwindCSS
 - Auto generated Layout
 - Responsive for different devices
 - Optimized for Next.js and Vercel
@@ -34,7 +34,7 @@ Built with Next.js and shadcn/ui, deployed on Vercel.
    yarn install
    ```
 
-4. Start the local Server:
+4. Start the development server:
 
    ```bash
    yarn dev
@@ -59,7 +59,7 @@ docker compose up -d
 Stop the Container
 
 ```
-docker compose down 
+docker compose down
 ```
 
 # License

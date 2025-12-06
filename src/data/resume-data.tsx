@@ -24,8 +24,7 @@ export const RESUME_DATA = {
   initials: "SB",
   location: "Zürich, Switzerland, CET",
   locationLink: "https://www.google.com/maps/place/Zürich",
-  about:
-    "FUTURE DATA SOLUTIONS",
+  about: "FUTURE DATA SOLUTIONS",
   summary:
     "An innovative tech entrepreneur and visionary leader, driving global sustainability through cutting-edge data-centric solutions and cultivating a culture of innovation and excellence. I have over 12 years of experience in technology and leadership working with companies in the UK, Europe, Australia and the US.",
   avatarUrl: "https://avatars.githubusercontent.com/u/47544355?v=4",
@@ -54,7 +53,8 @@ export const RESUME_DATA = {
   education: [
     {
       school: "City, University of London",
-      degree: "Bachelor's Degreee in Computer Science with Artificial Intelligence",
+      degree:
+        "Bachelor's Degreee in Computer Science with Artificial Intelligence",
       start: "2011",
       end: "2014",
     },
@@ -90,7 +90,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2021",
       end: "2021",
-      description: "Championed the development and implementation of comprehensive business intelligence strategies, driving seamless integration of cross-platform analytics solutions to deliver consistent, high-impact user experiences and fortify client business outcomes in a competitive market.",
+      description:
+        "Championed the development and implementation of comprehensive business intelligence strategies, driving seamless integration of cross-platform analytics solutions to deliver consistent, high-impact user experiences and fortify client business outcomes in a competitive market.",
     },
     {
       company: "InterWorks",
@@ -100,7 +101,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2020",
       end: "2021",
-      description: "Pioneered advanced analytics infrastructure, harmonising on-premise and cloud ecosystems to elevate performance, security, and data accessibility, while optimising high-availability and disaster recovery strategies to support scalable growth and future-proofing the analytics landscape.",
+      description:
+        "Pioneered advanced analytics infrastructure, harmonising on-premise and cloud ecosystems to elevate performance, security, and data accessibility, while optimising high-availability and disaster recovery strategies to support scalable growth and future-proofing the analytics landscape.",
     },
     {
       company: "InterWorks",
@@ -110,7 +112,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2018",
       end: "2020",
-      description: "Orchestrated a convergence of data analytics and business strategy, fostering a culture of data-driven decision making, enhancing BI platform adoption, and spearheading change management to ensure agile and impactful analytics practices.",
+      description:
+        "Orchestrated a convergence of data analytics and business strategy, fostering a culture of data-driven decision making, enhancing BI platform adoption, and spearheading change management to ensure agile and impactful analytics practices.",
     },
     {
       company: "Javelin Group (part of Accenture Strategy)",
@@ -120,7 +123,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2016",
       end: "2018",
-      description: "Strategically guided cross-platform analytics integration, tailored education and community building within teams, and implemented comprehensive data analytics platforms, driving transformative business intelligence solutions and user experience optimisation for the largest retailers on the planet.",
+      description:
+        "Strategically guided cross-platform analytics integration, tailored education and community building within teams, and implemented comprehensive data analytics platforms, driving transformative business intelligence solutions and user experience optimisation for the largest retailers on the planet.",
     },
     {
       company: "InterWorks",
@@ -130,7 +134,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2015",
       end: "2016",
-      description: "Led advanced data analysis initiatives, devising comprehensive business intelligence solutions and Tableau visualisations, overseeing data governance, and articulating data-driven strategies to stakeholders, facilitating organisation-wide upskilling in data literacy.",
+      description:
+        "Led advanced data analysis initiatives, devising comprehensive business intelligence solutions and Tableau visualisations, overseeing data governance, and articulating data-driven strategies to stakeholders, facilitating organisation-wide upskilling in data literacy.",
     },
     {
       company: "InterWorks",
@@ -140,7 +145,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2014",
       end: "2015",
-      description: "Synthesised complex datasets into strategic insights using Tableau, crafting interactive dashboards for informed decision-making, while ensuring database accuracy and contributing to the organisation's data strategy.",
+      description:
+        "Synthesised complex datasets into strategic insights using Tableau, crafting interactive dashboards for informed decision-making, while ensuring database accuracy and contributing to the organisation's data strategy.",
     },
     {
       company: "BarkOne Consulting",
@@ -150,7 +156,8 @@ export const RESUME_DATA = {
       /*logo: ParabolLogo,*/
       start: "2013",
       end: "2014",
-      description: "Established and led an IT consultancy, delivering bespoke software solutions and driving business growth through strategic leadership.",
+      description:
+        "Established and led an IT consultancy, delivering bespoke software solutions and driving business growth through strategic leadership.",
     },
   ],
   skills: [
@@ -187,7 +194,15 @@ export const RESUME_DATA = {
   projects: [
     {
       title: "Transparency as a Service AG",
-      techStack: ["Startup", "Sales", "GTM", "Blockchain", "Supply Chain", "Sustainability", "Marketing"],
+      techStack: [
+        "Startup",
+        "Sales",
+        "GTM",
+        "Blockchain",
+        "Supply Chain",
+        "Sustainability",
+        "Marketing",
+      ],
       description:
         "Platform to automate gathering of sustainability data from agricultural supply chains and fighting counterfeit products",
       link: {
@@ -197,13 +212,9 @@ export const RESUME_DATA = {
     },
     {
       title: "InterWorks Translate",
-      techStack: [
-        "Python",
-        "Lambda",
-        "API Gateway",
-        "Tableau",
-      ],
-      description: "A serverless application that translates Tableau workbooks and dashboards",
+      techStack: ["Python", "Lambda", "API Gateway", "Tableau"],
+      description:
+        "A serverless application that translates Tableau workbooks and dashboards",
       link: {
         label: "GitHub",
         href: "https://github.com/sbarkar/InterWorks-Translate",
@@ -218,8 +229,7 @@ export const RESUME_DATA = {
     {
       title: "sbarkar.com",
       techStack: ["Side Project", "Next.js", "Vercel"],
-      description:
-        "My personal CV website",
+      description: "My personal CV website",
       link: {
         label: "sbarkar.com",
         href: "https://sbarkar.com/",
@@ -227,9 +237,15 @@ export const RESUME_DATA = {
     },
     {
       title: "CircleMeal",
-      techStack: ["Side Project", "Next.js", "Typescript", "Vercel", "TailwindCSS", "PostgreSQL"],
-      description:
-        "Platform for curated 1 on 1 meals with interesting people",
+      techStack: [
+        "Side Project",
+        "Next.js",
+        "Typescript",
+        "Vercel",
+        "TailwindCSS",
+        "PostgreSQL",
+      ],
+      description: "Platform for curated 1 on 1 meals with interesting people",
       link: {
         label: "CircleMeal",
         href: "https://circlemeal.com/",
@@ -237,7 +253,14 @@ export const RESUME_DATA = {
     },
     {
       title: "WebOS",
-      techStack: ["Side Project", "JavaScript", "Typescript", "CSS", "HTML", "GLSL"],
+      techStack: [
+        "Side Project",
+        "JavaScript",
+        "Typescript",
+        "CSS",
+        "HTML",
+        "GLSL",
+      ],
       description:
         "Fully functioning desktop environment in the browser and yes you can play DOOM in it",
       link: {
@@ -248,8 +271,7 @@ export const RESUME_DATA = {
     {
       title: "b33group.com",
       techStack: ["Side Project", "JavaScript", "Wordpress"],
-      description:
-        "A website for an interior design studio",
+      description: "A website for an interior design studio",
       link: {
         label: "B33 Group",
         href: "https://b33group.com/",

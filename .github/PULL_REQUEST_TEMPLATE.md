@@ -1,21 +1,21 @@
 ## Summary
 
-This PR upgrades Tailwind CSS to v4 and updates PostCSS configuration to use the new `@tailwindcss/postcss` plugin.
+Describe the change and why it is needed. For dependency upgrades, include verification details and any migration notes.
 
 ## What I changed
-- Upgraded `tailwindcss` to v4 and added `@tailwindcss/postcss`.
-- Updated `postcss.config.js` to use `@tailwindcss/postcss` as the PostCSS plugin.
-- Committed generated `yarn.lock`.
 
-## Verification
-- Build: `yarn build` (local build completed successfully)
-- Lint: `yarn lint` (no lint errors)
+- Describe the files changed and high-level purpose (e.g., upgrade Tailwind to v4, update PostCSS config).
+
+## Verification checklist
+
+- [ ] Run `yarn dev` and verify the change at `http://localhost:3000`.
+- [ ] Run `npx prettier --write .` and `yarn lint`.
+- [ ] Run `yarn build` locally (if the change affects build/SSR).
+- [ ] Confirm no visual regressions in Vercel preview after merge.
 
 ## Notes
-- Removed `package-lock.json` to avoid mixing npm and Yarn lockfiles. This repo uses Yarn (`yarn.lock`).
-- Tailwind v4 may require visual verification for style regressions. Please run `yarn dev` and review pages locally.
 
-## Post-merge
-- Ensure Vercel preview deploy looks correct. If you see layout or style regressions, revert or fix specific style changes.
+- If this is a dependency upgrade with breaking changes (e.g., Tailwind v4), include migration notes and link to relevant docs.
+- Avoid mixing `npm` and `yarn` lockfiles — prefer `yarn.lock` for this repository.
 
-Closes: replace Dependabot PR #176 (optional) — or keep both and merge as appropriate.
+If this change affects the site's structure or data shape, please coordinate before merging.

@@ -1,0 +1,12 @@
+{
+  "buildCommand": "yarn build",
+  "devCommand": "yarn dev",
+  "installCommand": "yarn install --frozen-lockfile",
+  "framework": "nextjs",
+  "env": {},
+  "git": {
+    "deploymentEnabled": {
+      "main": true
+    }
+  }
+}
