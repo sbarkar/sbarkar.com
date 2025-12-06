@@ -1,9 +1,11 @@
 <!-- PR template to remind contributors to run local checks -->
+
 ## Summary
 
 Describe the change and why it is needed.
 
 ## Validation checklist
+
 - [ ] Run `yarn dev` and verify the change at `http://localhost:3000`.
 - [ ] Run `npx prettier --write .` and `yarn lint`.
 - [ ] Run `yarn build` locally (if the change affects build/SSR).
