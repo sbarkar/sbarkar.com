@@ -9,6 +9,7 @@ on:
     types: [completed]
 
 permissions:
+  contents: read
   pull-requests: write
 
 jobs:
@@ -37,6 +38,23 @@ jobs:
             const openPrs = prs.filter(pr => pr.state === 'open');
             core.info(`Found ${openPrs.length} open PR(s)`);
             
+            // GraphQL mutation to enable auto-merge
+            const enableAutoMergeMutation = `
+              mutation($prId: ID!) {
+                enablePullRequestAutoMerge(input: {
+                  pullRequestId: $prId,
+                  mergeMethod: SQUASH
+                }) {
+                  pullRequest {
+                    number
+                    autoMergeRequest {
+                      enabledAt
+                    }
+                  }
+                }
+              }
+            `;
+            
             for (const pr of openPrs) {
               const author = pr.user?.login;
               const labels = pr.labels.map(l => l.name);
@@ -45,22 +63,7 @@ jobs:
               if (author === 'dependabot[bot]' || labels.includes('automerge')) {
                 core.info(`Enabling auto-merge for PR #${pr.number} by ${author}`);
                 try {
-                  const mutation = `
-                    mutation($prId: ID!) {
-                      enablePullRequestAutoMerge(input: {
-                        pullRequestId: $prId,
-                        mergeMethod: SQUASH
-                      }) {
-                        pullRequest {
-                          number
-                          autoMergeRequest {
-                            enabledAt
-                          }
-                        }
-                      }
-                    }
-                  `;
-                  await github.graphql(mutation, { prId: pr.node_id });
+                  await github.graphql(enableAutoMergeMutation, { prId: pr.node_id });
                   core.info(`✓ Auto-merge enabled for PR #${pr.number}`);
                 } catch (error) {
                   core.warning(`Failed to enable auto-merge for PR #${pr.number}: ${error.message}`);
