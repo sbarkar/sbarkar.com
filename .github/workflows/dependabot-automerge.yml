@@ -1,9 +1,7 @@
 name: "Dependabot Auto-merge"
 
-# This workflow listens for completed runs of the canonical `CI` workflow.
-# When the `CI` workflow completes successfully it finds any open PR(s)
-# that correspond to the run's head SHA and enables auto-merge for PRs that
-# are authored by dependabot[bot] or that have the `automerge` label.
+# Automatically enable auto-merge for Dependabot PRs when CI passes.
+# This workflow runs after the CI workflow completes successfully.
 
 on:
   workflow_run:
@@ -11,77 +9,65 @@ on:
     types: [completed]
 
 permissions:
-  contents: read
-  checks: read
+  contents: write
   pull-requests: write
 
 jobs:
-  ci:
-    if: |
-      github.event.pull_request.user.login == 'dependabot[bot]'
-      || contains(github.event.pull_request.labels.*.name, 'automerge')
+  automerge:
+    name: "Auto-merge Dependabot PRs"
+    if: github.event.workflow_run.conclusion == 'success'
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-
-      - name: Use Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: "20"
-
-      - name: Install dependencies
-        run: yarn install --frozen-lockfile
-
-      - name: Build
-        run: yarn build
-
-      - name: Lint
-        run: yarn lint
-
-  enable-automerge:
-    name: "Enable GitHub Auto-merge"
-    needs: ci
-    if: success() && (github.event.pull_request.user.login == 'dependabot[bot]' || contains(github.event.pull_request.labels.*.name, 'automerge'))
-    runs-on: ubuntu-latest
-    steps:
-      - name: Find PRs for workflow run head SHA
-        id: find_prs
-        uses: actions/github-script@v6
+      - name: Enable auto-merge for Dependabot PRs
+        uses: actions/github-script@v7
         with:
           script: |
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const headSha = context.payload.workflow_run.head_sha;
-            core.info(`Looking up PRs associated with commit ${headSha}`);
-            // Finds PRs associated with the commit (may return 0 or more)
-            const result = await github.rest.repos.listPullRequestsAssociatedWithCommit({ owner, repo, commit_sha: headSha });
-            const openPrs = result.data.filter(p => p.state === 'open');
-            const prNumbers = openPrs.map(p => p.number);
-            core.info(`Found PRs: ${prNumbers.join(', ')}`);
-            core.setOutput('prNumbers', prNumbers.join(','));
-
-      - name: Enable auto-merge for matching Dependabot / `automerge` PRs
-        uses: actions/github-script@v6
-        with:
-          script: |
-            const owner = context.repo.owner;
-            const repo = context.repo.repo;
-            const prListRaw = '${{ steps.find_prs.outputs.prNumbers }}';
-            const prNums = prListRaw ? prListRaw.split(',').map(n => parseInt(n, 10)).filter(Boolean) : [];
-            if (prNums.length === 0) {
-              core.info('No open PRs found for this run SHA. Nothing to do.');
-              return;
-            }
-            for (const prNumber of prNums) {
-              const pr = await github.rest.pulls.get({ owner, repo, pull_number: prNumber });
-              const author = pr.data.user?.login;
-              const labels = pr.data.labels.map(l => l.name);
+            
+            core.info(`Looking for PRs with commit ${headSha}`);
+            
+            // Find PRs associated with this commit
+            const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
+              owner,
+              repo,
+              commit_sha: headSha
+            });
+            
+            const openPrs = prs.filter(pr => pr.state === 'open');
+            core.info(`Found ${openPrs.length} open PR(s)`);
+            
+            for (const pr of openPrs) {
+              const author = pr.user?.login;
+              const labels = pr.labels.map(l => l.name);
+              
+              // Auto-merge if created by Dependabot or has 'automerge' label
               if (author === 'dependabot[bot]' || labels.includes('automerge')) {
-                core.info(`Enabling auto-merge for PR #${prNumber}`);
-                await github.rest.pulls.enableAutoMerge({ owner, repo, pull_number: prNumber, merge_method: 'squash' });
+                core.info(`Enabling auto-merge for PR #${pr.number} by ${author}`);
+                try {
+                  await github.graphql(`
+                    mutation($prId: ID!) {
+                      enablePullRequestAutoMerge(input: {
+                        pullRequestId: $prId,
+                        mergeMethod: SQUASH
+                      }) {
+                        pullRequest {
+                          number
+                          autoMergeRequest {
+                            enabledAt
+                          }
+                        }
+                      }
+                    }
+                  `, {
+                    prId: pr.node_id
+                  });
+                  core.info(`✓ Auto-merge enabled for PR #${pr.number}`);
+                } catch (error) {
+                  core.warning(`Failed to enable auto-merge for PR #${pr.number}: ${error.message}`);
+                }
               } else {
-                core.info(`Skipping PR #${prNumber} (author=${author} labels=${labels.join('|')})`);
+                core.info(`Skipping PR #${pr.number} (author: ${author}, labels: ${labels.join(', ') || 'none'})`);
               }
             }
