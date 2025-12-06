@@ -6,7 +6,7 @@ FROM node:20-alpine AS deps
 WORKDIR /app
 
 # Install Yarn
-RUN coreutils-env yarn --version || npm install -g yarn@1.22.22
+RUN npm install -g yarn@1.22.22
 
 # Copy package files
 COPY package.json yarn.lock ./
