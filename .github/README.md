@@ -5,9 +5,11 @@ This directory contains GitHub workflows and configuration for CI/CD and automat
 ## Workflows
 
 ### `ci.yml` — Build & Lint Checks
+
 Runs on every push and pull request. Verifies the project builds and lints successfully using Yarn.
 
 **Steps:**
+
 - Install dependencies: `yarn install --frozen-lockfile`
 - Build: `yarn build`
 - Lint: `yarn lint`
@@ -15,13 +17,16 @@ Runs on every push and pull request. Verifies the project builds and lints succe
 **Status:** Required for merging to `main` (via branch protection).
 
 ### `dependabot-automerge.yml` — Automated Dependency Updates
+
 Detects Dependabot PRs and PRs labeled `automerge`, runs CI checks, and enables GitHub auto-merge if checks pass.
 
 **Trigger:**
+
 - Dependabot security/version update PRs (opened by `dependabot[bot]`).
 - Any PR labeled `automerge` (manual override for other bots or tasks).
 
 **Behavior:**
+
 - Runs the same CI checks as `ci.yml` (install, build, lint).
 - If all checks pass, enables GitHub auto-merge (squash merge method).
 - GitHub respects branch protection and will not merge if conflicts exist or required checks are unsatisfied.
@@ -29,12 +34,14 @@ Detects Dependabot PRs and PRs labeled `automerge`, runs CI checks, and enables 
 ## Configuration
 
 ### Dependabot (`dependabot.yml`)
+
 - **Ecosystem:** Yarn (uses `yarn.lock` for deterministic builds).
 - **Schedule:** Daily updates.
 - **Labels:** Auto-labeled `automerge` so the workflow detects them.
 - **Commit prefix:** `chore(deps)` for consistency.
 
 ### Branch Protection (Manual Setup Required)
+
 To ensure auto-merge workflows function safely:
 
 1. Go to **Settings → Branches → Branch protection rules** for `main`.
@@ -47,6 +54,7 @@ To ensure auto-merge workflows function safely:
 **Rationale:** Branch protection ensures auto-merge PRs only merge after CI passes and there are no conflicts.
 
 ### Auto-merge Label (Optional)
+
 Create a repository label `automerge` (e.g., green color) for visibility. Dependabot will auto-apply it; you can also manually add it to other PRs that should auto-merge.
 
 ## How It Works (End-to-End)
