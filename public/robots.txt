@@ -1,0 +1,5 @@
+# robots.txt for sbarkar.com
+User-agent: *
+Allow: /
+
+Sitemap: https://sbarkar.com/sitemap.xml

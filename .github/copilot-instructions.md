@@ -2,7 +2,7 @@
 
 # Copilot Instructions — sbarkar.com
 
-Purpose: make AI coding agents immediately productive editing this Next.js CV site.
+Purpose: make AI coding agents immediately productive editing this Next.js CV site while maintaining performance, accessibility, and best practices.
 
 **Big Picture:**
 
@@ -148,3 +148,120 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 - Add a short developer checklist `docs/DEV_CHECKLIST.md` (added) summarizing these steps.
 
 If you want, I can also add a small Vercel configuration or an extended CI that caches node modules. Tell me which of these you'd like next.
+
+---
+
+## Performance & Optimization Guidelines
+
+**When making changes, always consider these performance best practices:**
+
+### Bundle Optimization
+
+- Use dynamic imports for large components that aren't immediately needed: `const Component = dynamic(() => import('./Component'))`
+- Keep component files focused and single-purpose to enable better tree-shaking
+- Import only what you need from libraries (e.g., `import { specificIcon } from 'lucide-react'` not `import * as Icons`)
+- The `next.config.js` has `optimizePackageImports` configured for common libraries — add new heavy libraries there
+
+### Image Optimization
+
+- Always use Next.js `<Image>` component for images when possible (not applicable to avatar due to external URL)
+- Supported formats: AVIF (preferred), WebP (fallback), then PNG/JPG
+- Place images in `public/` or `src/images/` and import them
+- For logos/icons: prefer SVG for vector graphics, PNG for raster images
+- Lazy load images that are below the fold
+
+### Metadata & SEO
+
+- Always update both `page.tsx` metadata and root `layout.tsx` metadata when changing content
+- Include OpenGraph and Twitter Card metadata for all pages
+- Keep titles under 60 characters, descriptions under 160 characters
+- Update `public/sitemap.xml` when adding new pages
+- Use semantic HTML (`<header>`, `<main>`, `<section>`, `<article>`, etc.)
+
+### Component Optimization
+
+- Use `React.memo()` for components that receive stable props and render frequently (e.g., list items)
+- Add `displayName` to memoized components for better debugging
+- Prefer server components (default in app router) over client components
+- Only use `"use client"` when you need: hooks, event handlers, browser APIs
+- Extract static data to constants (see `RESUME_DATA`)
+
+### CSS & Styling
+
+- Prefer Tailwind utility classes over custom CSS
+- Use CSS variables (in `globals.css` `@theme` block) for consistent theming
+- Group related utilities: layout → spacing → colors → typography → effects
+- Use print utilities (`print:hidden`, `print:block`) for print-specific styles
+- The project uses Tailwind CSS 4 with `@theme` directive — don't mix with v3 patterns
+
+### Code Quality
+
+- Always add `rel="noopener noreferrer"` to external links (`target="_blank"`)
+- Keep TypeScript strict mode enabled — fix type errors, don't suppress with `any`
+- Use `as const` for static data to get precise type inference
+- Prefer named exports over default exports (easier to refactor, better tree-shaking)
+- Keep functions small and focused (single responsibility)
+
+### Accessibility (a11y)
+
+- All interactive elements must be keyboard accessible
+- Use semantic HTML elements
+- Add descriptive `alt` text to images
+- Maintain color contrast ratios (WCAG AA minimum)
+- Test with keyboard navigation (Tab, Enter, Escape)
+- Radix UI components are accessible by default — preserve their props
+
+### Testing & Validation Workflow
+
+1. Make the change
+2. Run `yarn lint` to check for issues
+3. Run `yarn build` to verify production build works (when possible)
+4. Test in browser at `localhost:3000`
+5. Test print layout (Cmd/Ctrl+P)
+6. Test responsive breakpoints (mobile, tablet, desktop)
+7. Test keyboard navigation if you changed interactive elements
+
+### Common Pitfalls to Avoid
+
+- ❌ Don't use `any` type — use `unknown` or proper types
+- ❌ Don't import entire icon libraries — import specific icons
+- ❌ Don't add client components unnecessarily — server components are faster
+- ❌ Don't skip `alt` text on images
+- ❌ Don't forget `noopener noreferrer` on external links
+- ❌ Don't modify `RESUME_DATA` shape without updating all usages in `page.tsx`
+- ❌ Don't remove analytics (`@vercel/analytics`, `@vercel/speed-insights`) without asking
+
+### Security Best Practices
+
+- Never commit API keys, tokens, or sensitive data
+- Validate and sanitize all user inputs (if you add forms)
+- Use environment variables for configuration (not hardcoded)
+- Keep dependencies updated regularly
+- Always use `rel="noopener noreferrer"` on external links to prevent tabnabbing
+
+### When Adding New Features
+
+1. Check if a similar component already exists in `src/components/ui/`
+2. Follow the existing file structure and naming conventions
+3. Add types in the same file or in a `types/` folder if shared
+4. Consider mobile-first responsive design
+5. Test the print layout if the feature is visible on page
+6. Update this document if you add patterns others should follow
+
+### Quick Command Reference
+
+```bash
+# Development
+yarn dev          # Start dev server (http://localhost:3000)
+yarn build        # Production build + typecheck
+yarn start        # Start production server
+yarn lint         # Run ESLint
+
+# Formatting
+npx prettier --write .  # Format all files
+
+# Docker
+docker compose build    # Build container
+docker compose up -d    # Run container
+docker compose down     # Stop container
+```
