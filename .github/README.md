@@ -18,18 +18,19 @@ Runs on every push and pull request. Verifies the project builds and lints succe
 
 ### `dependabot-automerge.yml` — Automated Dependency Updates
 
-Detects Dependabot PRs and PRs labeled `automerge`, runs CI checks, and enables GitHub auto-merge if checks pass.
+Automatically enables GitHub's auto-merge feature for Dependabot PRs and PRs labeled `automerge` after CI passes.
 
 **Trigger:**
 
-- Dependabot security/version update PRs (opened by `dependabot[bot]`).
-- Any PR labeled `automerge` (manual override for other bots or tasks).
+- Runs after the `CI` workflow completes successfully.
+- Targets Dependabot PRs (opened by `dependabot[bot]`) and any PR labeled `automerge`.
 
 **Behavior:**
 
-- Runs the same CI checks as `ci.yml` (install, build, lint).
-- If all checks pass, enables GitHub auto-merge (squash merge method).
-- GitHub respects branch protection and will not merge if conflicts exist or required checks are unsatisfied.
+- Finds PRs associated with the successful CI run.
+- Enables GitHub's native auto-merge feature (squash merge method).
+- GitHub will automatically merge when all checks pass and there are no conflicts.
+- Respects branch protection rules.
 
 ## Configuration
 
@@ -60,15 +61,15 @@ Create a repository label `automerge` (e.g., green color) for visibility. Depend
 ## How It Works (End-to-End)
 
 1. **Dependabot detects a security update** or version change.
-2. **Dependabot opens a PR** and labels it `automerge`.
-3. **Workflow triggers:** `dependabot-automerge.yml` detects the PR.
-4. **CI runs:** install → build → lint.
-5. **If CI passes:**
-   - Workflow enables GitHub auto-merge.
-   - GitHub waits for branch protection checks.
-   - If no conflicts and all checks pass, GitHub automatically merges (squash).
-6. **If CI fails or conflicts exist:**
-   - Auto-merge is not enabled.
+2. **Dependabot opens a PR** and labels it `automerge` (configured in `dependabot.yml`).
+3. **CI workflow triggers:** Runs on the PR (install → build → lint).
+4. **If CI passes:**
+   - `dependabot-automerge.yml` workflow triggers automatically.
+   - Workflow enables GitHub's auto-merge feature for the PR.
+   - GitHub waits for all branch protection checks.
+   - If no conflicts exist, GitHub automatically merges (squash).
+5. **If CI fails or conflicts exist:**
+   - Auto-merge is not enabled or won't proceed.
    - PR stays open for manual review/fix.
 
 ## Important Notes
@@ -80,8 +81,9 @@ Create a repository label `automerge` (e.g., green color) for visibility. Depend
 
 ## Troubleshooting
 
-- **Auto-merge not enabled:** Check that `dependabot-automerge.yml` job conditions match your PR (either created by `dependabot[bot]` or labeled `automerge`). Also ensure the PR author is not restricted by branch protection (GitHub Actions is typically allowed).
-- **Build or lint fails:** Review the workflow output in GitHub Actions. Fix the code and either wait for Dependabot to re-run or manually push a fix to the PR branch.
-- **PR has conflicts:** Dependabot can auto-resolve some conflicts; for others, you'll need to manually rebase or wait for a new update attempt.
+- **Auto-merge not enabled:** Check the Actions log for `dependabot-automerge.yml`. Ensure the CI workflow completed successfully and the PR is either created by `dependabot[bot]` or labeled `automerge`. Verify branch protection allows auto-merge.
+- **Build or lint fails:** Review the CI workflow output in GitHub Actions. Fix the code and push changes, or wait for Dependabot to update the PR.
+- **PR has conflicts:** GitHub won't auto-merge if conflicts exist. Dependabot can auto-resolve some conflicts in its next update, or you can manually rebase the PR branch.
+- **Workflow doesn't trigger:** Ensure the `CI` workflow completed (check Actions tab). The `dependabot-automerge.yml` workflow only triggers after `CI` completes.
 
 For more details on workflows, see the individual `.yml` files. For package/build config, see `package.json`, `next.config.js`, `vercel.json`, and `eslint.config.mjs`.
