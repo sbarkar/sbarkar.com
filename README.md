@@ -233,7 +233,7 @@ yarn dev
 
 ## 🚀 Deployment
 
-### Vercel (Recommended)
+### Vercel (Current)
 
 1. Push your code to GitHub
 2. Import project in [Vercel Dashboard](https://vercel.com/new)
@@ -241,6 +241,16 @@ yarn dev
 4. Deploy!
 
 Configuration is managed in [`vercel.json`](./vercel.json).
+
+### GitHub Pages Migration
+
+Interested in migrating from Vercel to GitHub Pages? See our comprehensive migration guides:
+
+- 📖 **[Migration Guide](docs/GITHUB_PAGES_MIGRATION.md)** - Complete step-by-step migration instructions
+- ✅ **[Migration Checklist](docs/MIGRATION_CHECKLIST.md)** - Quick reference checklist
+- ⚖️ **[Vercel vs GitHub Pages Comparison](docs/VERCEL_VS_GITHUB_PAGES.md)** - Detailed feature comparison
+
+**TL;DR**: Your site is **fully compatible** with GitHub Pages! The migration is straightforward with no data loss, but you'll need to replace Vercel Analytics with an alternative solution.
 
 ### Self-Hosting
 
