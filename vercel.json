@@ -3,9 +3,6 @@
   "devCommand": "yarn dev",
   "installCommand": "yarn install --frozen-lockfile",
   "framework": "nextjs",
-  "projectSettings": {
-    "sourceFilesOutsideRootDirectory": true
-  },
   "env": [],
   "git": {
     "deploymentEnabled": {
