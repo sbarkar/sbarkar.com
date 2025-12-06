@@ -9,7 +9,6 @@ on:
     types: [completed]
 
 permissions:
-  contents: write
   pull-requests: write
 
 jobs:
@@ -46,7 +45,7 @@ jobs:
               if (author === 'dependabot[bot]' || labels.includes('automerge')) {
                 core.info(`Enabling auto-merge for PR #${pr.number} by ${author}`);
                 try {
-                  await github.graphql(`
+                  const mutation = `
                     mutation($prId: ID!) {
                       enablePullRequestAutoMerge(input: {
                         pullRequestId: $prId,
@@ -60,9 +59,8 @@ jobs:
                         }
                       }
                     }
-                  `, {
-                    prId: pr.node_id
-                  });
+                  `;
+                  await github.graphql(mutation, { prId: pr.node_id });
                   core.info(`✓ Auto-merge enabled for PR #${pr.number}`);
                 } catch (error) {
                   core.warning(`Failed to enable auto-merge for PR #${pr.number}: ${error.message}`);
