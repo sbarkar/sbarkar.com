@@ -231,6 +231,27 @@ lsof -ti:3000 | xargs kill -9
 yarn dev
 ```
 
+## ⚙️ GitHub Setup
+
+### Branch Protection Rules
+
+To ensure code quality, configure branch protection for the `main` branch:
+
+1. Navigate to **Settings → Branches → Branch protection rules**
+2. Add rule for `main` branch
+3. Enable **Require status checks to pass before merging**
+4. Search for and select **CI** as a required status check
+   - Note: The status check must run at least once before it appears in the list
+   - The check is named "CI" (matches the job name in `.github/workflows/ci.yml`)
+5. Enable other recommended protections:
+   - **Require a pull request before merging**
+   - **Require approvals** (if working with a team)
+   - **Require conversation resolution before merging**
+
+### Why "CI" and not "ci"?
+
+GitHub branch protection uses **job names** from workflows, not workflow names. The CI workflow job is named "CI" (uppercase) to match the workflow name and make it easily identifiable in branch protection settings.
+
 ## 🚀 Deployment
 
 ### Vercel (Recommended)
