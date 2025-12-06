@@ -1,3 +1,4 @@
+import { memo } from "react";
 import {
   Card,
   CardHeader,
@@ -14,16 +15,22 @@ interface Props {
   link?: string;
 }
 
-export function ProjectCard({ title, description, tags, link }: Props) {
+export const ProjectCard = memo(function ProjectCard({
+  title,
+  description,
+  tags,
+  link,
+}: Props) {
   return (
     <Card className="border-muted flex flex-col overflow-hidden border p-3">
-      <CardHeader className="">
+      <CardHeader>
         <div className="space-y-1">
           <CardTitle className="text-base">
             {link ? (
               <a
                 href={link}
                 target="_blank"
+                rel="noopener noreferrer"
                 className="inline-flex items-center gap-1 hover:underline"
               >
                 {title}{" "}
@@ -56,4 +63,4 @@ export function ProjectCard({ title, description, tags, link }: Props) {
       </CardContent>
     </Card>
   );
-}
+});

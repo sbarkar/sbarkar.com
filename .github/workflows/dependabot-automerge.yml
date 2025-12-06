@@ -25,19 +25,19 @@ jobs:
             const owner = context.repo.owner;
             const repo = context.repo.repo;
             const headSha = context.payload.workflow_run.head_sha;
-            
+
             core.info(`Looking for PRs with commit ${headSha}`);
-            
+
             // Find PRs associated with this commit
             const { data: prs } = await github.rest.repos.listPullRequestsAssociatedWithCommit({
               owner,
               repo,
               commit_sha: headSha
             });
-            
+
             const openPrs = prs.filter(pr => pr.state === 'open');
             core.info(`Found ${openPrs.length} open PR(s)`);
-            
+
             // GraphQL mutation to enable auto-merge
             const enableAutoMergeMutation = `
               mutation($prId: ID!) {
@@ -54,7 +54,7 @@ jobs:
                 }
               }
             `;
-            
+
             for (const pr of openPrs) {
               const author = pr.user?.login;
               const labels = pr.labels.map(l => l.name);
