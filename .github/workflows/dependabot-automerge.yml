@@ -1,0 +1,52 @@
+name: "Dependabot Auto-merge"
+
+on:
+  pull_request:
+    types: [opened, labeled, reopened, synchronize]
+
+permissions:
+  contents: read
+  checks: read
+  pull-requests: write
+
+jobs:
+  ci:
+    if: |
+      github.event.pull_request.user.login == 'dependabot[bot]'
+      || contains(github.event.pull_request.labels.*.name, 'automerge')
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+      - name: Install dependencies
+        run: yarn install --frozen-lockfile
+
+      - name: Build
+        run: yarn build
+
+      - name: Lint
+        run: yarn lint
+
+  enable-automerge:
+    name: "Enable GitHub Auto-merge"
+    needs: ci
+    if: success() && (
+      github.event.pull_request.user.login == 'dependabot[bot]' ||
+      contains(github.event.pull_request.labels.*.name, 'automerge')
+    )
+    runs-on: ubuntu-latest
+    permissions:
+      pull-requests: write
+    steps:
+      - name: Enable auto-merge on PR
+        uses: peter-evans/enable-pull-request-automerge@v2
+        with:
+          pull-request-number: ${{ github.event.pull_request.number }}
+          merge-method: squash

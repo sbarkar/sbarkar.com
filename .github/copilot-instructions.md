@@ -37,6 +37,10 @@ Purpose: make AI coding agents immediately productive editing this Next.js CV si
 - Lint: `yarn lint`.
 - Docker: `docker compose build` then `docker compose up -d`; stop with `docker compose down`.
 
+**Package manager (important):**
+
+- **Always use `yarn`** for this repository. The project is locked to Yarn (see `yarn.lock` and `package.json` `packageManager` field). Use `yarn install --frozen-lockfile` locally and in CI to ensure deterministic installs. Do not switch to `npm` or use `package-lock.json`.
+
 When making changes that affect rendering, run `yarn dev` and open `http://localhost:3000`.
 
 **Examples (concrete edits):**
