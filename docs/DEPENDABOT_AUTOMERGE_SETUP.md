@@ -88,13 +88,30 @@ jobs:
 
 ## Update Types and Behavior
 
-| Update Type | Behavior | Rationale |
-|-------------|----------|-----------|
-| **Patch** (e.g., 1.0.0 → 1.0.1) | Grouped and auto-merged | Bug fixes only, low risk |
-| **Minor** (e.g., 1.0.0 → 1.1.0) | Grouped and auto-merged | New features, backward compatible |
-| **Major** (e.g., 1.0.0 → 2.0.0) | Separate PR, auto-merged if CI passes | Breaking changes possible, but CI validates |
+| Update Type | Behavior | Risk Level | Recommendation |
+|-------------|----------|------------|----------------|
+| **Patch** (e.g., 1.0.0 → 1.0.1) | Grouped and auto-merged | 🟢 Low | Safe to auto-merge |
+| **Minor** (e.g., 1.0.0 → 1.1.0) | Grouped and auto-merged | 🟡 Medium | Safe to auto-merge with CI |
+| **Major** (e.g., 1.0.0 → 2.0.0) | Separate PR, auto-merged if CI passes | 🔴 High | Requires strong CI coverage |
 
-All updates must pass CI (build + lint) before merging.
+**All updates must pass CI (build + lint) before merging.**
+
+### ⚠️ Major Version Update Considerations
+
+Major version updates may contain breaking changes. Auto-merging is safe **only if**:
+
+- ✅ Your CI suite thoroughly tests all functionality
+- ✅ Your build process catches TypeScript/compilation errors
+- ✅ You regularly monitor merged PRs and deployment status
+- ✅ You can quickly rollback if issues occur
+
+**For critical dependencies** (e.g., React, Next.js, TypeScript), consider:
+- Manual review before auto-merge triggers
+- Temporarily disabling auto-merge: comment `@dependabot ignore this major version`
+- Reviewing the changelog before merge
+- Testing in a staging environment first
+
+**Current setup:** All major updates auto-merge by default. This works well for a personal CV site with good CI coverage. Adjust based on your risk tolerance.
 
 ## Monitoring and Control
 

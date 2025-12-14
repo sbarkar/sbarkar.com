@@ -11,6 +11,7 @@ updates:
     allow:
       - dependency-type: "all"
     # Group minor and patch updates together to reduce PR volume
+    # Major updates create separate PRs for easier review
     groups:
       dependencies:
         patterns:
@@ -18,3 +19,7 @@ updates:
         update-types:
           - "minor"
           - "patch"
+    # Note: Major version updates are NOT grouped and create individual PRs
+    # This allows for manual review of breaking changes if desired
+    # To disable auto-merge for major updates, comment on the PR:
+    # @dependabot ignore this major version
