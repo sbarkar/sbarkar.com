@@ -39,7 +39,7 @@ This ensures dependencies stay up-to-date automatically while maintaining code q
 
 ### Dependabot (`dependabot.yml`)
 
-- **Ecosystem:** Yarn (uses `yarn.lock` for deterministic builds).
+- **Ecosystem:** npm (manages Yarn dependencies via `yarn.lock` for deterministic builds).
 - **Schedule:** Daily updates.
 - **Commit prefix:** `chore(deps)` for consistency.
 
