@@ -10,7 +10,7 @@ Purpose: make AI coding agents immediately productive editing this Next.js CV si
 - **Single-page CV:** `src/app/page.tsx` renders the whole CV using a single canonical data object `src/data/resume-data.tsx`.
 - **UI pattern:** small reusable primitives live under `src/components/ui/*` (Buttons, Card, Badge, Avatar, Command, etc.) and are composed by higher-level components in `src/components`.
 - **Static assets:** logos and image exports under `src/images/logos` and icons in `src/components/icons`.
-- **Analytics/telemetry:** `src/app/layout.tsx` includes `@vercel/analytics` and `@vercel/speed-insights` — avoid removing unless instructed.
+- **Analytics/telemetry:** `src/app/layout.tsx` includes `next-plausible` for privacy-focused analytics — avoid removing unless instructed.
 
 **Key files to edit (common tasks):**
 
@@ -51,9 +51,10 @@ When making changes that affect rendering, run `yarn dev` and open `http://local
 
 **Integration points & external deps:**
 
-- `@vercel/analytics` and `@vercel/speed-insights` (layout). Keep them if telemetry matters.
-- Tailwind + `prettier-plugin-tailwindcss` used for style ordering — run formatter after edits.
+- `next-plausible` for privacy-focused analytics (layout). Keep it for telemetry.
+- Tailwind CSS 4.1 + `prettier-plugin-tailwindcss` used for style ordering — run formatter after edits.
 - No test suite is present; rely on manual dev server and visual checks.
+- Next.js 16 with React 19 — follow latest app router patterns.
 
 **TypeScript notes:**
 
@@ -116,16 +117,20 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 - If CSS/utility changes don't appear, restart the dev server — Tailwind can be cached by Next's dev server.
 - Avatar images currently use direct `src` on `AvatarImage` (not `next/image`). If migrating to `next/image`, update imports and verify SSR behavior.
 
-**Next.js specifics & compatibility notes**
+**Next.js 16 & React 19 specifics**
 
 - App router files in `src/app` are server components by default — avoid client hooks unless you add `"use client";`.
 - `tsconfig.json` defines `@/*` alias. Use `@/` imports for consistency.
-- `package.json` lists `next@^15.5.2` — upgrading Next may introduce breaking changes; test thoroughly when bumping.
+- `package.json` lists `next@^16.0.10`, `react@^19.0.0`, and `react-dom@^19.1.0` — upgrading major versions may introduce breaking changes; test thoroughly when bumping.
+- React 19 features: Use React Compiler optimizations when available, leverage improved hooks and transitions.
+- Next.js 16: Takes advantage of improved bundle optimization, faster builds, and enhanced App Router stability.
 
 **CI / Deployment notes**
 
 - Vercel: the project is ready for Vercel; pushing to `main` or using the Vercel dashboard will deploy automatically with default settings.
-- GitHub Actions: a lightweight CI runs `yarn build` and `yarn lint` (see `.github/workflows/ci.yml`).
+- GitHub Actions: CI runs on every push/PR with `yarn build` and `yarn lint` (see `.github/workflows/ci.yml`).
+- Dependabot: Automated dependency updates configured (see `.github/dependabot.yml`).
+- Docker: Production-ready Dockerfile and docker-compose.yaml for self-hosting.
 
 **Files to avoid changing (without coordination)**
 
@@ -147,7 +152,25 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 - Add a PR template to remind contributors to run the validation checklist (added): `.github/PULL_REQUEST_TEMPLATE.md`.
 - Add a short developer checklist `docs/DEV_CHECKLIST.md` (added) summarizing these steps.
 
-If you want, I can also add a small Vercel configuration or an extended CI that caches node modules. Tell me which of these you'd like next.
+---
+
+## Automation & Workflows
+
+**GitHub Actions workflows:**
+
+- **CI (`.github/workflows/ci.yml`)**: Runs on every push/PR. Executes `yarn install --frozen-lockfile`, `yarn build`, and `yarn lint`. Required to pass before merging.
+- **Deploy (`.github/workflows/deploy.yml`)**: Handles deployment to production (if configured).
+
+**Dependabot configuration:**
+
+- Updates Node.js dependencies daily using yarn ecosystem (see `.github/dependabot.yml`)
+- Uses commit prefix `chore(deps)` for consistency
+
+**Branch protection (recommended setup):**
+
+- Require PR reviews before merging
+- Require CI status checks to pass
+- Keep branches up to date before merging
 
 ---
 
@@ -229,15 +252,18 @@ If you want, I can also add a small Vercel configuration or an extended CI that 
 - ❌ Don't skip `alt` text on images
 - ❌ Don't forget `noopener noreferrer` on external links
 - ❌ Don't modify `RESUME_DATA` shape without updating all usages in `page.tsx`
-- ❌ Don't remove analytics (`@vercel/analytics`, `@vercel/speed-insights`) without asking
+- ❌ Don't remove analytics (`next-plausible`) without asking
 
 ### Security Best Practices
 
-- Never commit API keys, tokens, or sensitive data
+- Never commit API keys, tokens, or sensitive data (use `.env.example` as template)
 - Validate and sanitize all user inputs (if you add forms)
 - Use environment variables for configuration (not hardcoded)
-- Keep dependencies updated regularly
+- Keep dependencies updated regularly (Dependabot enabled)
 - Always use `rel="noopener noreferrer"` on external links to prevent tabnabbing
+- Review Dependabot security alerts promptly
+- Use TypeScript strict mode to catch type-related security issues
+- Avoid dangerouslySetInnerHTML; use proper React escaping
 
 ### When Adding New Features
 
@@ -247,6 +273,9 @@ If you want, I can also add a small Vercel configuration or an extended CI that 
 4. Consider mobile-first responsive design
 5. Test the print layout if the feature is visible on page
 6. Update this document if you add patterns others should follow
+7. Prefer server components unless interactivity is needed
+8. Use React 19 features (improved hooks, transitions) when applicable
+9. Leverage Next.js 16 optimizations (turbopack in dev, improved caching)
 
 ### Quick Command Reference
 
@@ -265,3 +294,37 @@ docker compose build    # Build container
 docker compose up -d    # Run container
 docker compose down     # Stop container
 ```
+
+---
+
+## Environment Variables & Configuration
+
+**Analytics setup:**
+
+- Uses `next-plausible` for privacy-focused analytics
+- Configure in `src/app/layout.tsx` with your Plausible domain
+- Respects user privacy and doesn't require cookie consent in most jurisdictions
+
+**Environment files:**
+
+- `.env.example` provides template for required variables
+- Create `.env.local` for local development (gitignored)
+- Add production env vars in Vercel dashboard or deployment platform
+
+**Next.js configuration (`next.config.js`):**
+
+- `optimizePackageImports`: Pre-configured for common heavy libraries (lucide-react, etc.)
+- Add new large dependencies here for better bundle optimization
+- Uses TypeScript for type-safe config
+
+**Tailwind configuration (`tailwind.config.js`):**
+
+- Uses Tailwind CSS 4 with `@theme` directive in `globals.css`
+- Custom print styles via `@media print` and utility classes
+- Animations enabled via `tailwindcss-animate` plugin
+
+**Interactive features:**
+
+- **Command Menu** (`src/components/command-menu.tsx`): Client component using `cmdk`. Triggered with `⌘J` / `Ctrl+J`. Provides quick navigation to social links and site sections.
+- **Print Drawer** (`src/components/print-drawer.tsx`): Client component using `vaul`. Provides print functionality via drawer UI.
+- Both use Radix UI primitives for accessibility and keyboard navigation.

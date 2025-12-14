@@ -12,12 +12,12 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 ## 🚀 Features
 
 - **Single Config File**: All content managed through [`src/data/resume-data.tsx`](./src/data/resume-data.tsx)
-- **Modern Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS 4, shadcn/ui
+- **Modern Stack**: Next.js 16, React 19, TypeScript, Tailwind CSS 4, shadcn/ui
 - **Performance Optimized**:
   - Server-side rendering with Next.js App Router
   - Optimized image handling with AVIF/WebP support
   - Bundle size optimization with package imports
-  - Analytics with Vercel Analytics & Speed Insights
+  - Privacy-focused analytics with Plausible
 - **Print-Friendly**: Optimized CSS for clean PDF exports
 - **Responsive Design**: Mobile, tablet, and desktop layouts
 - **Command Menu**: Quick navigation with `⌘J` / `Ctrl+J`
@@ -28,10 +28,10 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 
 ### Core
 
-- **Framework**: [Next.js 15](https://nextjs.org/) with App Router
+- **Framework**: [Next.js 16](https://nextjs.org/) with App Router
 - **UI Library**: [React 19](https://react.dev/)
-- **Language**: [TypeScript](https://www.typescriptlang.org/)
-- **Styling**: [Tailwind CSS 4](https://tailwindcss.com/)
+- **Language**: [TypeScript 5.9](https://www.typescriptlang.org/)
+- **Styling**: [Tailwind CSS 4.1](https://tailwindcss.com/)
 - **Component Library**: [shadcn/ui](https://ui.shadcn.com/)
 
 ### Dependencies
@@ -42,11 +42,12 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 - **Command Menu**: cmdk
 - **Drawer**: vaul
 
-### Development Tools
+### Development & Analytics
 
-- **Linting**: ESLint with Next.js config
-- **Formatting**: Prettier with Tailwind CSS plugin
+- **Linting**: ESLint 9 with Next.js config
+- **Formatting**: Prettier 3.6 with Tailwind CSS plugin
 - **Package Manager**: Yarn 1.22.22
+- **Analytics**: next-plausible (privacy-focused)
 
 ## 📦 Getting Started Locally
 
