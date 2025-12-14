@@ -22,7 +22,7 @@ Automatically approves and merges Dependabot pull requests after all CI checks p
 
 **Behavior:**
 
-- Triggers on Dependabot PRs (opened, synchronized, reopened)
+- Triggers on Dependabot PRs (opened, synchronize, reopened)
 - Auto-approves the PR using GitHub token
 - Enables auto-merge with squash strategy
 - PR merges automatically once all required checks (CI) pass
