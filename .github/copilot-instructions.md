@@ -129,7 +129,7 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 
 - Vercel: the project is ready for Vercel; pushing to `main` or using the Vercel dashboard will deploy automatically with default settings.
 - GitHub Actions: CI runs on every push/PR with `yarn build` and `yarn lint` (see `.github/workflows/ci.yml`).
-- Dependabot: Automated dependency updates with auto-merge for passing PRs (see `.github/workflows/dependabot-automerge.yml`).
+- Dependabot: Automated dependency updates configured (see `.github/dependabot.yml`).
 - Docker: Production-ready Dockerfile and docker-compose.yaml for self-hosting.
 
 **Files to avoid changing (without coordination)**
@@ -160,19 +160,16 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 
 - **CI (`.github/workflows/ci.yml`)**: Runs on every push/PR. Executes `yarn install --frozen-lockfile`, `yarn build`, and `yarn lint`. Required to pass before merging.
 - **Deploy (`.github/workflows/deploy.yml`)**: Handles deployment to production (if configured).
-- **Dependabot Auto-merge (`.github/workflows/dependabot-automerge.yml`)**: Automatically enables auto-merge for Dependabot PRs after CI passes.
 
 **Dependabot configuration:**
 
 - Updates Node.js dependencies daily using yarn ecosystem (see `.github/dependabot.yml`)
-- PRs are auto-labeled with `automerge` for automated merging
 - Uses commit prefix `chore(deps)` for consistency
 
 **Branch protection (recommended setup):**
 
 - Require PR reviews before merging
 - Require CI status checks to pass
-- Enable auto-merge capability
 - Keep branches up to date before merging
 
 ---
