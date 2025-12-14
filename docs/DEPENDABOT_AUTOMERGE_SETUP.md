@@ -47,7 +47,7 @@ The workflow has the necessary permissions:
 ```yaml
 version: 2
 updates:
-  - package-ecosystem: "yarn"
+  - package-ecosystem: "npm"
     directory: "/"
     schedule:
       interval: "daily"  # Checks for updates daily
