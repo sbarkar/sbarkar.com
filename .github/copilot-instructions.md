@@ -164,7 +164,7 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 
 **Dependabot configuration:**
 
-- Updates npm dependencies daily via yarn package manager (see `.github/dependabot.yml`)
+- Updates Node.js dependencies daily using yarn ecosystem (see `.github/dependabot.yml`)
 - PRs are auto-labeled with `automerge` for automated merging
 - Uses commit prefix `chore(deps)` for consistency
 
