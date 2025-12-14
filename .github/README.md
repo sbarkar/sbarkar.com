@@ -16,6 +16,25 @@ Runs on every push and pull request. Verifies the project builds and lints succe
 
 **Status:** Required for merging to `main` (via branch protection).
 
+### `dependabot-automerge.yml` — Auto-Merge Dependabot PRs
+
+Automatically approves and merges Dependabot pull requests after all CI checks pass.
+
+**Behavior:**
+
+- Triggers on Dependabot PRs (opened, synchronize, reopened)
+- Auto-approves the PR using GitHub token
+- Enables auto-merge with squash strategy
+- PR merges automatically once all required checks (CI) pass
+
+**Requirements:**
+
+- Branch protection rules must be enabled on `main` branch
+- `ci` workflow must be set as a required status check
+- Auto-merge feature must be enabled in repository settings
+
+This ensures dependencies stay up-to-date automatically while maintaining code quality through CI validation.
+
 ## Configuration
 
 ### Dependabot (`dependabot.yml`)
@@ -37,6 +56,7 @@ Runs on every push and pull request. Verifies the project builds and lints succe
 ## Important Notes
 
 - **Yarn requirement:** This repository uses Yarn exclusively. All workflows and Dependabot use `yarn install --frozen-lockfile`. Do not use `npm` or create `package-lock.json`.
+- **Auto-merge behavior:** Dependabot PRs are automatically approved and merged after CI passes. The repository stays up-to-date without manual intervention.
 - **Merge conflicts:** If a Dependabot PR has merge conflicts (e.g., due to recent changes to `yarn.lock`), you can manually rebase the PR branch or let Dependabot handle it in the next run.
 - **Vercel deployments:** Vercel will build and deploy the site on every push to `main` (after merge). See `vercel.json` for build/dev/install command overrides.
 
