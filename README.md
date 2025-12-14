@@ -12,7 +12,7 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 ## 🚀 Features
 
 - **Single Config File**: All content managed through [`src/data/resume-data.tsx`](./src/data/resume-data.tsx)
-- **Modern Stack**: Next.js 15, React 19, TypeScript, Tailwind CSS 4, shadcn/ui
+- **Modern Stack**: Next.js 16, React 19, TypeScript, Tailwind CSS 4, shadcn/ui
 - **Performance Optimized**:
   - Server-side rendering with Next.js App Router
   - Optimized image handling with AVIF/WebP support
