@@ -28,9 +28,9 @@ export const RESUME_DATA = {
   summary:
     "An innovative tech entrepreneur and visionary leader, driving global sustainability through cutting-edge data-centric solutions and cultivating a culture of innovation and excellence. I have over 12 years of experience in technology and leadership working with companies in the UK, Europe, Australia and the US.",
   avatarUrl: "https://avatars.githubusercontent.com/u/47544355?v=4",
-  personalWebsiteUrl: "https://sbarkar.com",
+  personalWebsiteUrl: "https://barkar.ch",
   contact: {
-    email: "contact@sbarkar.com",
+    email: "contact@barkar.ch",
     tel: "+41798758379",
     social: [
       {
@@ -227,12 +227,12 @@ export const RESUME_DATA = {
         "iOS app that allows to control Tableau Server from your iPhone",
     },
     {
-      title: "sbarkar.com",
+      title: "barkar.ch",
       techStack: ["Side Project", "Next.js", "Vercel"],
       description: "My personal CV website",
       link: {
-        label: "sbarkar.com",
-        href: "https://sbarkar.com/",
+        label: "barkar.ch",
+        href: "https://barkar.ch/",
       },
     },
     {

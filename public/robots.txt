@@ -1,5 +1,5 @@
-# robots.txt for sbarkar.com
+# robots.txt for barkar.ch
 User-agent: *
 Allow: /
 
-Sitemap: https://sbarkar.com/sitemap.xml
+Sitemap: https://barkar.ch/sitemap.xml

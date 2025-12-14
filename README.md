@@ -1,4 +1,4 @@
-![Sergej Barkar CV](https://sbarkar.com/preview.png)
+![Sergej Barkar CV](https://barkar.ch/preview.png)
 
 # Sergej Barkar - Personal CV Website
 
@@ -7,7 +7,7 @@
 
 A minimalist, print-friendly CV website showcasing my professional experience, projects, and skills. Built with modern web technologies and optimized for performance.
 
-🌐 **Live Site:** [sbarkar.com](https://sbarkar.com)
+🌐 **Live Site:** [barkar.ch](https://barkar.ch)
 
 ## 🚀 Features
 
@@ -112,7 +112,7 @@ The application will be available at http://localhost:3000
 ## 📁 Project Structure
 
 ```
-sbarkar.com/
+barkar.ch/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── layout.tsx         # Root layout with metadata
@@ -313,4 +313,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ by Sergej Barkar**
 
-🌐 [sbarkar.com](https://sbarkar.com) • 💼 [LinkedIn](https://www.linkedin.com/in/sbarkar/) • 🐦 [Twitter](https://twitter.com/sbarkar_) • 💻 [GitHub](https://github.com/sbarkar)
+🌐 [barkar.ch](https://barkar.ch) • 💼 [LinkedIn](https://www.linkedin.com/in/sbarkar/) • 🐦 [Twitter](https://twitter.com/sbarkar_) • 💻 [GitHub](https://github.com/sbarkar)
