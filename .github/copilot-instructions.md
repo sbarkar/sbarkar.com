@@ -121,7 +121,7 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 
 - App router files in `src/app` are server components by default — avoid client hooks unless you add `"use client";`.
 - `tsconfig.json` defines `@/*` alias. Use `@/` imports for consistency.
-- `package.json` lists `next@^16.0.10` and `react@^19.0.0` — upgrading major versions may introduce breaking changes; test thoroughly when bumping.
+- `package.json` lists `next@^16.0.10`, `react@^19.0.0`, and `react-dom@^19.1.0` — upgrading major versions may introduce breaking changes; test thoroughly when bumping.
 - React 19 features: Use React Compiler optimizations when available, leverage improved hooks and transitions.
 - Next.js 16: Takes advantage of improved bundle optimization, faster builds, and enhanced App Router stability.
 
@@ -164,7 +164,7 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 
 **Dependabot configuration:**
 
-- Updates npm dependencies daily (see `.github/dependabot.yml`)
+- Updates yarn dependencies daily (see `.github/dependabot.yml`)
 - PRs are auto-labeled with `automerge` for automated merging
 - Uses commit prefix `chore(deps)` for consistency
 
