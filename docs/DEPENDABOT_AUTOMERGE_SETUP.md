@@ -63,7 +63,7 @@ updates:
 **Key features:**
 - Daily updates
 - Groups minor and patch updates to reduce PR volume
-- Major version updates create separate PRs (requires manual review)
+- Major version updates create separate PRs (may require manual review – see considerations below)
 
 ### Auto-Merge Workflow (`.github/workflows/dependabot-automerge.yml`)
 
