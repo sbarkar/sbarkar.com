@@ -10,3 +10,11 @@ updates:
     # Keep security updates trusted and frequent
     allow:
       - dependency-type: "all"
+    # Group minor and patch updates together to reduce PR volume
+    groups:
+      dependencies:
+        patterns:
+          - "*"
+        update-types:
+          - "minor"
+          - "patch"
