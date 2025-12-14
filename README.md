@@ -258,6 +258,31 @@ Or use Docker:
 docker compose up -d
 ```
 
+## 🔄 Automated Maintenance
+
+This repository uses automated workflows to keep dependencies up-to-date:
+
+### Dependabot Auto-Merge
+
+- **Daily dependency updates**: Dependabot checks for updates every day
+- **Automatic merging**: PRs are auto-approved and merged after CI passes
+- **Grouped updates**: Minor and patch updates are grouped to reduce PR volume
+- **Quality assurance**: All updates validated by CI (build + lint) before merge
+
+This ensures the project always uses the latest secure and stable dependencies without manual intervention.
+
+For detailed setup instructions and configuration, see:
+- [Dependabot Auto-Merge Setup Guide](./docs/DEPENDABOT_AUTOMERGE_SETUP.md)
+- [GitHub Automation README](./.github/README.md)
+
+### CI/CD Pipelines
+
+- **CI Workflow** (`ci.yml`): Runs on every PR - builds, type-checks, and lints
+- **Deploy Workflow** (`deploy.yml`): Deploys to GitHub Pages on main branch updates
+- **Auto-Merge Workflow** (`dependabot-automerge.yml`): Handles Dependabot PR automation
+
+All workflows use Yarn with frozen lockfiles for deterministic builds.
+
 ## 🤝 Contributing
 
 This is a personal CV website, but suggestions and improvements are welcome!
