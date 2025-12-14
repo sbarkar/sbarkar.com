@@ -2,7 +2,7 @@
 
 # Sergej Barkar - Personal CV Website
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsbarkar%2Fsbarkar.com)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsbarkar%2Fbarkar.ch)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 
 A minimalist, print-friendly CV website showcasing my professional experience, projects, and skills. Built with modern web technologies and optimized for performance.
@@ -61,8 +61,8 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/sbarkar/sbarkar.com.git
-   cd sbarkar.com
+   git clone https://github.com/sbarkar/barkar.ch.git
+   cd barkar.ch
    ```
 
 2. **Install dependencies:**
