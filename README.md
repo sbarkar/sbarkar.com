@@ -272,6 +272,7 @@ This repository uses automated workflows to keep dependencies up-to-date:
 This ensures the project always uses the latest secure and stable dependencies without manual intervention.
 
 For detailed setup instructions and configuration, see:
+
 - [Dependabot Auto-Merge Setup Guide](./docs/DEPENDABOT_AUTOMERGE_SETUP.md)
 - [GitHub Automation README](./.github/README.md)
 

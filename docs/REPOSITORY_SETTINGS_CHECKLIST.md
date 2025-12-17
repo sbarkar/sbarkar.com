@@ -19,12 +19,14 @@ Navigate to: **Settings → Branches → Branch protection rules**
 Create or edit the rule for `main` branch:
 
 #### Required Settings:
+
 - [ ] **Require a pull request before merging** - ✅ MUST be enabled
 - [ ] **Require status checks to pass before merging** - ✅ MUST be enabled
   - [ ] Add required check: `ci` (from CI workflow)
   - [ ] Add required check: `auto-merge` (from auto-merge workflow) - OPTIONAL but recommended
 
 #### Recommended Settings:
+
 - [ ] **Require branches to be up to date before merging** - ⭐ Recommended
   - Ensures tests run against the latest main branch
   - Prevents race conditions
@@ -33,6 +35,7 @@ Create or edit the rule for `main` branch:
   - Set to "1 approval required"
 
 #### ⚠️ Important Considerations:
+
 - [ ] **Require review from Code Owners** - ⚠️ Recommended: DISABLED for full automation
   - **For fully automated merges:** Disable this setting
   - **For selective automation:** Keep enabled and add Dependabot as a code owner in specific paths
@@ -44,11 +47,13 @@ Create or edit the rule for `main` branch:
 Navigate to: **Settings → Actions → General**
 
 #### Workflow Permissions:
+
 - [ ] **Read and write permissions** - ✅ MUST be selected
   - Required for workflows to approve and merge PRs
   - Alternative: Keep "Read repository contents" and add specific permissions (already in workflow)
 
 #### Allow GitHub Actions:
+
 - [ ] **Allow all actions and reusable workflows** - ✅ Recommended
   - OR specifically allow: `actions/*`, `dependabot/fetch-metadata`
 
@@ -57,6 +62,7 @@ Navigate to: **Settings → Actions → General**
 After configuring settings:
 
 1. **Test with a Manual PR:**
+
    ```bash
    git checkout -b test-auto-merge
    # Make a small change
@@ -65,6 +71,7 @@ After configuring settings:
    git commit -m "test: verify auto-merge setup"
    git push origin test-auto-merge
    ```
+
    - Create PR from GitHub UI
    - Check that CI runs
    - Check that you can enable auto-merge manually
@@ -94,19 +101,24 @@ When properly configured, you should see:
 ## 🚨 Troubleshooting
 
 ### "Auto-merge is not enabled for this repository"
+
 - **Fix:** Enable auto-merge in Settings → General → Pull Requests
 
 ### "Required status checks are missing"
+
 - **Fix:** Add `ci` to required checks in branch protection rules
 
 ### "Workflow does not have permissions to approve"
+
 - **Fix:** Enable "Read and write permissions" in Actions settings
 
 ### "Review required" but auto-merge not working
+
 - **Fix:** Ensure "Require review from Code Owners" is disabled
 - **OR:** Add a CODEOWNERS file with the bot as owner (not recommended)
 
 ### Workflow runs but doesn't approve
+
 - **Check:** Workflow logs in Actions tab for errors
 - **Check:** PR is created by `dependabot[bot]`
 - **Check:** GITHUB_TOKEN has correct permissions
