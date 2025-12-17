@@ -13,6 +13,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
 ### 1. New Files Created (3)
 
 #### `.github/workflows/dependabot-automerge.yml`
+
 - **Purpose**: GitHub Actions workflow that automatically approves and enables auto-merge for Dependabot PRs
 - **Trigger**: `pull_request_target` event (opened, synchronize, reopened)
 - **Security**: Only runs for PRs from `dependabot[bot]`, uses secure token access
@@ -22,6 +23,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
   3. Enables auto-merge with squash strategy
 
 #### `docs/DEPENDABOT_AUTOMERGE_SETUP.md`
+
 - **Purpose**: Comprehensive setup guide and documentation
 - **Contents**:
   - How the auto-merge system works
@@ -34,6 +36,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
   - Security considerations
 
 #### `docs/REPOSITORY_SETTINGS_CHECKLIST.md`
+
 - **Purpose**: Step-by-step checklist for required GitHub settings
 - **Contents**:
   - Required repository settings with checkboxes
@@ -46,6 +49,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
 ### 2. Files Modified (3)
 
 #### `.github/dependabot.yml`
+
 - **Changes**:
   - Added dependency grouping for minor and patch updates
   - Added explanatory comments about update types
@@ -56,6 +60,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
   - Clear documentation in the config file itself
 
 #### `.github/README.md`
+
 - **Changes**:
   - Added documentation for the auto-merge workflow
   - Listed workflow behavior and requirements
@@ -65,6 +70,7 @@ Enable automatic merging of Dependabot pull requests after all CI checks pass, e
   - Makes requirements clear for maintainers
 
 #### `README.md`
+
 - **Changes**:
   - Added "Automated Maintenance" section
   - Documents Dependabot auto-merge system
@@ -106,6 +112,7 @@ graph TD
 ## ⚙️ Configuration Details
 
 ### Dependabot Configuration
+
 ```yaml
 # Schedule: Daily at midnight UTC
 # Max concurrent PRs: 5
@@ -115,13 +122,15 @@ graph TD
 ```
 
 ### Workflow Permissions
+
 ```yaml
 permissions:
-  contents: write        # Required to merge PRs
-  pull-requests: write   # Required to approve PRs
+  contents: write # Required to merge PRs
+  pull-requests: write # Required to approve PRs
 ```
 
 ### Security Features
+
 - Uses `pull_request_target` for secure token access
 - Only runs for verified Dependabot PRs
 - All updates validated by CI before merge
@@ -129,23 +138,25 @@ permissions:
 
 ## 📊 Update Strategy
 
-| Type | Example | Grouped? | Auto-Merge? | Risk |
-|------|---------|----------|-------------|------|
-| Patch | 1.0.0 → 1.0.1 | ✅ Yes | ✅ Yes | 🟢 Low |
-| Minor | 1.0.0 → 1.1.0 | ✅ Yes | ✅ Yes | 🟡 Medium |
-| Major | 1.0.0 → 2.0.0 | ❌ No | ✅ Yes* | 🔴 High |
+| Type  | Example       | Grouped? | Auto-Merge? | Risk      |
+| ----- | ------------- | -------- | ----------- | --------- |
+| Patch | 1.0.0 → 1.0.1 | ✅ Yes   | ✅ Yes      | 🟢 Low    |
+| Minor | 1.0.0 → 1.1.0 | ✅ Yes   | ✅ Yes      | 🟡 Medium |
+| Major | 1.0.0 → 2.0.0 | ❌ No    | ✅ Yes\*    | 🔴 High   |
 
-*Major updates auto-merge only if CI passes. Consider manual review for critical dependencies.
+\*Major updates auto-merge only if CI passes. Consider manual review for critical dependencies.
 
 ## 🚀 Next Steps (Repository Administrator)
 
 To activate the auto-merge system, configure these **required repository settings**:
 
 ### 1. Enable Auto-Merge
+
 - Go to: **Settings → General → Pull Requests**
 - Check: ✅ "Allow auto-merge"
 
 ### 2. Configure Branch Protection
+
 - Go to: **Settings → Branches → Add rule for `main`**
 - Enable:
   - ✅ "Require a pull request before merging"
@@ -157,11 +168,14 @@ To activate the auto-merge system, configure these **required repository setting
   - ❌ "Require review from Code Owners" (unless you want manual reviews)
 
 ### 3. Verify Workflow Permissions
+
 - Go to: **Settings → Actions → General**
 - Select: "Read and write permissions"
 
 ### 4. Test the System
+
 Wait for the next Dependabot PR (runs daily) or trigger manually:
+
 - Go to: **Insights → Dependency graph → Dependabot**
 - Click: "Check for updates"
 
@@ -180,17 +194,21 @@ See `docs/REPOSITORY_SETTINGS_CHECKLIST.md` for detailed checklist.
 ## 🎛️ Control & Monitoring
 
 ### Disable Auto-Merge for Specific Update
+
 Comment on the Dependabot PR:
+
 ```
 @dependabot ignore this major version
 @dependabot ignore this dependency
 ```
 
 ### Disable Auto-Merge Globally
+
 - Go to: **Actions → Dependabot Auto-Merge**
 - Click: **...** → **Disable workflow**
 
 ### Monitor Activity
+
 - **Actions Tab**: View all workflow runs
 - **PR History**: See merged dependency updates
 - **Commit Log**: Track dependency changes
@@ -219,6 +237,7 @@ All documentation is in place:
 ## ✅ Validation Complete
 
 All files have been validated:
+
 - ✅ YAML syntax checked (all workflows and config files)
 - ✅ Code review completed (feedback addressed)
 - ✅ Security scan passed (CodeQL - no issues)
@@ -236,4 +255,3 @@ This PR is ready to be merged. Once merged and repository settings are configure
 **Reviewed By**: Automated code review + security scan  
 **Files Changed**: 6 (3 new, 3 modified)  
 **Lines Added**: ~411 (including documentation)
-
