@@ -1,13 +1,13 @@
-![Sergej Barkar CV](https://sbarkar.com/preview.png)
+![Sergej Barkar CV](https://barkar.ch/preview.png)
 
 # Sergej Barkar - Personal CV Website
 
-[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsbarkar%2Fsbarkar.com)
+[![Deploy with Vercel](https://vercel.com/button)](https://vercel.com/new/clone?repository-url=https%3A%2F%2Fgithub.com%2Fsbarkar%2Fbarkar.ch)
 [![License: MIT](https://img.shields.io/badge/License-MIT-blue.svg)](https://choosealicense.com/licenses/mit/)
 
 A minimalist, print-friendly CV website showcasing my professional experience, projects, and skills. Built with modern web technologies and optimized for performance.
 
-🌐 **Live Site:** [sbarkar.com](https://sbarkar.com)
+🌐 **Live Site:** [barkar.ch](https://barkar.ch)
 
 ## 🚀 Features
 
@@ -61,8 +61,8 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 1. **Clone the repository:**
 
    ```bash
-   git clone https://github.com/sbarkar/sbarkar.com.git
-   cd sbarkar.com
+   git clone https://github.com/sbarkar/barkar.ch.git
+   cd barkar.ch
    ```
 
 2. **Install dependencies:**
@@ -112,7 +112,7 @@ The application will be available at http://localhost:3000
 ## 📁 Project Structure
 
 ```
-sbarkar.com/
+barkar.ch/
 ├── src/
 │   ├── app/                    # Next.js App Router
 │   │   ├── layout.tsx         # Root layout with metadata
@@ -314,4 +314,4 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 **Built with ❤️ by Sergej Barkar**
 
-🌐 [sbarkar.com](https://sbarkar.com) • 💼 [LinkedIn](https://www.linkedin.com/in/sbarkar/) • 🐦 [Twitter](https://twitter.com/sbarkar_) • 💻 [GitHub](https://github.com/sbarkar)
+🌐 [barkar.ch](https://barkar.ch) • 💼 [LinkedIn](https://www.linkedin.com/in/sbarkar/) • 🐦 [Twitter](https://twitter.com/sbarkar_) • 💻 [GitHub](https://github.com/sbarkar)

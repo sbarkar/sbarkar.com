@@ -6,7 +6,7 @@ import "./globals.css";
 import React from "react";
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://sbarkar.com"),
+  metadataBase: new URL("https://barkar.ch"),
   title: {
     default: "Sergej Barkar | Tech Entrepreneur & Data Solutions Expert",
     template: "%s | Sergej Barkar",
@@ -31,7 +31,7 @@ export const metadata: Metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://sbarkar.com",
+    url: "https://barkar.ch",
     title: "Sergej Barkar | Tech Entrepreneur & Data Solutions Expert",
     description:
       "An innovative tech entrepreneur and visionary leader, driving global sustainability through cutting-edge data-centric solutions.",
@@ -79,7 +79,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <PlausibleProvider domain="sbarkar.com">
+      <PlausibleProvider domain="barkar.ch">
         <body>{children}</body>
       </PlausibleProvider>
     </html>

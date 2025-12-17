@@ -2,7 +2,7 @@
 
 ## ✅ Implementation Complete
 
-This document summarizes the implementation of automated Dependabot PR merging for the sbarkar.com repository.
+This document summarizes the implementation of automated Dependabot PR merging for the barkar.ch repository.
 
 ## 🎯 Objective
 
