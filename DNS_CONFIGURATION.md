@@ -92,6 +92,11 @@ Once DNS records are configured and propagated:
 
 ## Common Issues
 
+### Site deploys but redirects to wrong domain
+- **Cause**: GitHub Pages custom domain setting doesn't match the CNAME file
+- **Solution**: Go to Repository Settings → Pages and update the "Custom domain" field to match your CNAME file (barkar.ch)
+- **How to verify**: Check deployment logs - they should show `Evaluated environment url: http://barkar.ch/`
+
 ### "Domain does not resolve" error in GitHub Pages
 - **Cause**: DNS records not yet propagated
 - **Solution**: Wait longer (up to 48 hours), or verify records are correct
