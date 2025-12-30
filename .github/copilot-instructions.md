@@ -10,7 +10,7 @@ Purpose: make AI coding agents immediately productive editing this Next.js CV si
 - **Single-page CV:** `src/app/page.tsx` renders the whole CV using a single canonical data object `src/data/resume-data.tsx`.
 - **UI pattern:** small reusable primitives live under `src/components/ui/*` (Buttons, Card, Badge, Avatar, Command, etc.) and are composed by higher-level components in `src/components`.
 - **Static assets:** logos and image exports under `src/images/logos` and icons in `src/components/icons`.
-- **Analytics/telemetry:** `src/app/layout.tsx` includes Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics — avoid removing unless instructed.
+- **Analytics/telemetry:** `src/app/layout.tsx` includes Plausible Analytics via CDN script for privacy-focused analytics — avoid removing unless instructed.
 
 **Key files to edit (common tasks):**
 
@@ -51,7 +51,7 @@ When making changes that affect rendering, run `yarn dev` and open `http://local
 
 **Integration points & external deps:**
 
-- Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics (layout). Keep it for telemetry.
+- Plausible Analytics via CDN script for privacy-focused analytics (layout). Keep it for telemetry.
 - Tailwind CSS 4.1 + `prettier-plugin-tailwindcss` used for style ordering — run formatter after edits.
 - No test suite is present; rely on manual dev server and visual checks.
 - Next.js 16 with React 19 — follow latest app router patterns.
@@ -301,8 +301,9 @@ docker compose down     # Stop container
 
 **Analytics setup:**
 
-- Uses Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics
-- Configured in `src/app/layout.tsx` using Next.js Script component with data-domain attribute
+- Uses Plausible Analytics via CDN script for privacy-focused analytics
+- Configured in `src/app/layout.tsx` using Next.js Script component with `data-domain` attribute
+- Script loads from `https://plausible.io/js/script.js` with `defer` and `afterInteractive` strategy
 - Respects user privacy and doesn't require cookie consent in most jurisdictions
 
 **Environment files:**
