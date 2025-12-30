@@ -64,8 +64,7 @@ export const RESUME_DATA = {
       company: "Bank Vontobel AG",
       link: "https://www.vontobel.com",
       badges: ["Zürich, Switzerland"],
-      title: "Head Data&AI Solutions Hub",
-      /*logo: ParabolLogo,*/
+      title: "Head Data & AI Solutions Hub",
       start: "2024",
       end: "Present",
       description:
