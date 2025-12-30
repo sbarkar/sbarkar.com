@@ -160,7 +160,7 @@ export const RESUME_DATA = {
   personalWebsiteUrl: "https://yoursite.com",
   contact: {
     email: "you@example.com",
-    tel: "+1234567890",
+    tel: undefined, // Optional: remove if you don't want to display phone number
     social: [
       /* your social links */
     ],
