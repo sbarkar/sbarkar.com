@@ -61,6 +61,16 @@ export const RESUME_DATA = {
   ],
   work: [
     {
+      company: "Bank Vontobel AG",
+      link: "https://www.vontobel.com",
+      badges: ["Zürich, Switzerland"],
+      title: "Head Data & AI Solutions Hub",
+      start: "2024",
+      end: "Present",
+      description:
+        "Leading a team that leverages data to drive business value through advanced Analytics and GenAI Platforms, enabling data-driven decision-making and fostering innovation across the organization.",
+    },
+    {
       company: "Transparency as a Service AG",
       link: "https://taas-ag.com",
       badges: ["Zürich, Switzerland"],
