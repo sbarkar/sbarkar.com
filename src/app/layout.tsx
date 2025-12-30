@@ -79,13 +79,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <Script
-        defer
-        data-domain="barkar.ch"
-        src="https://plausible.io/js/script.js"
-        strategy="afterInteractive"
-      />
-      <body>{children}</body>
+      <body>
+        {children}
+        <Script
+          defer
+          data-domain="barkar.ch"
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
+      </body>
     </html>
   );
 }
