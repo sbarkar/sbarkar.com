@@ -47,7 +47,7 @@ A minimalist, print-friendly CV website showcasing my professional experience, p
 - **Linting**: ESLint 9 with Next.js config
 - **Formatting**: Prettier 3.6 with Tailwind CSS plugin
 - **Package Manager**: Yarn 1.22.22
-- **Analytics**: next-plausible (privacy-focused)
+- **Analytics**: Plausible Analytics via CDN script (privacy-focused)
 
 ## 📦 Getting Started Locally
 
