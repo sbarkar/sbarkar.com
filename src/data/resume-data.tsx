@@ -31,7 +31,7 @@ export const RESUME_DATA = {
   personalWebsiteUrl: "https://barkar.ch",
   contact: {
     email: "contact@barkar.ch",
-    tel: "+41798758379",
+    tel: undefined,
     social: [
       {
         name: "GitHub",
