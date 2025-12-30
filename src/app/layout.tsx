@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import PlausibleProvider from "next-plausible";
+import Script from "next/script";
 
 import "./globals.css";
 import React from "react";
@@ -79,9 +79,15 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={inter.className}>
-      <PlausibleProvider domain="barkar.ch">
-        <body>{children}</body>
-      </PlausibleProvider>
+      <head>
+        <Script
+          defer
+          data-domain="barkar.ch"
+          src="https://plausible.io/js/script.js"
+          strategy="afterInteractive"
+        />
+      </head>
+      <body>{children}</body>
     </html>
   );
 }

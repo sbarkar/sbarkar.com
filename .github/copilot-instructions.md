@@ -10,7 +10,7 @@ Purpose: make AI coding agents immediately productive editing this Next.js CV si
 - **Single-page CV:** `src/app/page.tsx` renders the whole CV using a single canonical data object `src/data/resume-data.tsx`.
 - **UI pattern:** small reusable primitives live under `src/components/ui/*` (Buttons, Card, Badge, Avatar, Command, etc.) and are composed by higher-level components in `src/components`.
 - **Static assets:** logos and image exports under `src/images/logos` and icons in `src/components/icons`.
-- **Analytics/telemetry:** `src/app/layout.tsx` includes `next-plausible` for privacy-focused analytics — avoid removing unless instructed.
+- **Analytics/telemetry:** `src/app/layout.tsx` includes Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics — avoid removing unless instructed.
 
 **Key files to edit (common tasks):**
 
@@ -51,7 +51,7 @@ When making changes that affect rendering, run `yarn dev` and open `http://local
 
 **Integration points & external deps:**
 
-- `next-plausible` for privacy-focused analytics (layout). Keep it for telemetry.
+- Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics (layout). Keep it for telemetry.
 - Tailwind CSS 4.1 + `prettier-plugin-tailwindcss` used for style ordering — run formatter after edits.
 - No test suite is present; rely on manual dev server and visual checks.
 - Next.js 16 with React 19 — follow latest app router patterns.
@@ -252,7 +252,7 @@ Note: project uses `prettier-plugin-tailwindcss` — run the formatter to keep c
 - ❌ Don't skip `alt` text on images
 - ❌ Don't forget `noopener noreferrer` on external links
 - ❌ Don't modify `RESUME_DATA` shape without updating all usages in `page.tsx`
-- ❌ Don't remove analytics (`next-plausible`) without asking
+- ❌ Don't remove analytics (Plausible) without asking
 
 ### Security Best Practices
 
@@ -301,8 +301,8 @@ docker compose down     # Stop container
 
 **Analytics setup:**
 
-- Uses `next-plausible` for privacy-focused analytics
-- Configure in `src/app/layout.tsx` with your Plausible domain
+- Uses Plausible Analytics via `@plausible-analytics/tracker` for privacy-focused analytics
+- Configured in `src/app/layout.tsx` using Next.js Script component with data-domain attribute
 - Respects user privacy and doesn't require cookie consent in most jurisdictions
 
 **Environment files:**
